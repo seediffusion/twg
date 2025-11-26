@@ -154,7 +154,7 @@ timer divulgar, chuvatimer, windtimer, nighttimer, objectspawntimer, versiontime
 network n;
 network_event e;
 savedata sd("serverdata.dat", "server_data");
-const string prefskey = "charbhoom";
+const string prefskey = "fcknikckjjieifiififwsssiriirioaioieiwwkowowkwkokwokakoaokoekoakoaokfffffawewaa";
 dictionary d, d2;
 http httpn;
 //mapispawn@[] mapispawns;
@@ -290,12 +290,12 @@ void writedata(string fv = "", int fvv = -55555) {
 	file_put("admin_log.svr", adminlog, 250);
 	string bandata;
 	bandata = serialize(compjails);
-	bandata = string_encrypt(bandata, "charbhoom");
+	bandata = string_encrypt(bandata, "fcknikckjjieifiififwsssiriirioaioieiwwkowowkwkokwokakoaokoekoakoaokfffffawewaa");
 	f.open("jaildata.dat", "wb");
 	f.write(bandata);
 	f.close();
 	bandata = serialize(ipjails);
-	bandata = string_encrypt(bandata, "charbhoom");
+	bandata = string_encrypt(bandata, "fcknikckjjieifiififwsssiriirioaioieiwwkowowkwkokwokakoaokoekoakoaokfffffawewaa");
 	f.open("jaildata2.dat", "wb");
 	f.write(bandata);
 	f.close();
