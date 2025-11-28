@@ -65,7 +65,23 @@ void mainmenu(bool fromgame = false) {
 		s.add_sub_menu_item("settings", "enable buffer logging");
 	else
 		s.add_sub_menu_item("settings", "disable buffer logging");
-
+	//if(playlogo==0)
+	//s.add_sub_menu_item("settings","enable playing logo at startup");
+	//else if(playlogo==1)
+	//s.add_sub_menu_item("settings","disable playing logo at startup");
+	//if(checkcfu==0)
+	//s.add_sub_menu_item("settings","enable checking for updates at startup");
+	//else if(checkcfu==1)
+	//s.add_sub_menu_item("settings","disable checking for updates at startup");
+	//if(checkcmotd==0)
+	//{
+	//s.add_sub_menu_item("settings","enable checking for clientside message of the day at startup");
+	//}
+	//else if(checkcmotd==1)
+	//{
+	//s.add_sub_menu_item("settings","enable showing the new clientside message of the day "+(motdshow==1?"always":"just once")+" at startup");
+	//s.add_sub_menu_item("settings","disable checking for clientside message of the day at startup");
+	//}
 	s.add_sub_menu_item("settings", "Add alias");
 	s.add_sub_menu_item("settings", "Remove alias");
 	s.add_sub_menu_item("settings", "Add script key");
@@ -567,7 +583,22 @@ void mainmenu(bool fromgame = false) {
 		if (fromgame) speechratemenu(true);
 		else speechratemenu();
 	}
-
+	//else if(result=="settings:enable playing logo at startup")
+	//{
+	//playlogo=1;
+	//speak("playing logo at startup enabled");
+	//writeprefs();
+	//if(fromgame) mainmenu(true);
+	//else mainmenu();
+	//}
+	//else if(result=="settings:disable playing logo at startup")
+	//{
+	//playlogo=0;
+	//speak("playing logo at startup disabled");
+	//writeprefs();
+	//if(fromgame) mainmenu(true);
+	//else mainmenu();
+	//}
 	//else if(result=="settings:enable checking for updates at startup")
 	//{
 	//checkcfu=1;
@@ -1101,12 +1132,12 @@ void accountstoragemenu() {
 				accountstoragemenu();
 			} else if (form.is_pressed(ok)) {
 				if (form.get_text(user) == "" or string_contains(form.get_text(user), " ", 1) != -1) {
-					dlg("An error has occurred. Please check the username field and try again");
+					dlg("An error has occured. Please check the username field and try again");
 					form.reset();
 					reset_network();
 					accountstoragemenu();
 				} else if (form.get_text(pass) == "" or string_contains(form.get_text(pass), " ", 1) != -1) {
-					dlg("An error has occurred. Please check the password field and try again");
+					dlg("An error has occured. Please check the password field and try again");
 					form.reset();
 					reset_network();
 					accountstoragemenu();
@@ -1238,7 +1269,7 @@ void speechmodemenu(bool fromgame = false) {
 	}
 }
 void audiomusicmenu() {
-	dlg("Use the left and right arrows to check the position of the speakers manually. Press or hold up and down arrows to change the sound volume. Press or hold page up and page down to change its pitch. Press or hold space to play/pause the track. Press or hold r to reset the position, volume and pitch. Press or hold q to seek backward. Press or hold e to seek forward. Press or hold w to go to the beginning of the track. Press escape or enter to stop the track and go back to the main menu. Press enter to continue");
+	dlg("Use the left and right arrows to check the position of the speakers manually. Press or hold up and down arrows to change the sound volume. Press or hold page up and page down to change it's pitch. Press or hold space to play/pause the track. Press or hold r to reset the position, volume and pitch. Press or hold q to seek backward. Press or hold e to seek forward. Press or hold w to go to the beginning of the track. Press escape or enter to stop the track and go back to the main menu. Press enter to continue");
 	sound audiomusic;
 	string[] ambs = string_split(musictypes, "\r\n", false);
 	string temp = ambs[random(0, ambs.length() - 1)];
@@ -2567,7 +2598,7 @@ void cdmenu() {
 		appsmenu();
 }
 void fileloop() {
-	string pfile = v.input("enter the name of the file that should be played with its extension. For example, test.ogg. Supported files: OGG, WAV");
+	string pfile = v.input("enter the name of the file that should be played with its extention. For example, test.ogg. Supported files: OGG, WAV");
 	if (!file_exists("smart player audio files/" + pfile)) {
 		MessageBox("error", "" + pfile + " does not exists on smart player audio files folder");
 		appsmenu();
@@ -2602,7 +2633,7 @@ void fileloop() {
 	}
 }
 void mp3loop() {
-	string mp3 = v.input("enter the name of file that should be played with its extension. For example, test.mp3. Supported files: MP3");
+	string mp3 = v.input("enter the name of file that should be played with its extention. For example, test.mp3. Supported files: MP3");
 	if (!file_exists("smart player audio files/" + mp3)) {
 		MessageBox("error", "" + mp3 + " does not exists on smart player audio files folder");
 		appsmenu();

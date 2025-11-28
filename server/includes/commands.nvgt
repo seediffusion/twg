@@ -1829,7 +1829,7 @@ void command(player@p, string command) {
 		write_to(p.name, "dirty.usr", "0");
 		write_to(p.name, "wet.usr", "0");
 		write_to(p.name, "health.usr", "10000");
-		send_reliable(p, "stats has been restored successfully", 2);
+		send_reliable(p, "stats has been restaured successfully", 2);
 		load_char_data(p, true);
 	} else if (parsed[0] == "/hideme" and p.is_admin() and p.hidden == 0) {
 		write_to(p.name, "hidden.usr", "1");
@@ -1925,7 +1925,7 @@ void command(player@p, string command) {
 			return;
 		}
 		if (events[x].started) {
-			send_reliable(e.peer_id, "you can't join this event, since it was been already started. ", 2);
+			send_reliable(e.peer_id, "you can't join this event, since it was been allready started. ", 2);
 			return;
 		}
 		if (x < 0) {
@@ -1979,7 +1979,7 @@ void command(player@p, string command) {
 			return;
 		}
 		if (events[x].started == true) {
-			send_reliable(e.peer_id, "this event was already started. ", 2);
+			send_reliable(e.peer_id, "this event was allready started. ", 2);
 			return;
 		} else
 			events[x].start();
@@ -2106,7 +2106,7 @@ void command(player@p, string command) {
 				int something = a.find(players[ind].map);
 				if (something > -1) {
 					if (players[ind].gender == 0)players[ind].gender2 = "his";
-					else players[ind].gender2 = "her";
+					else players[ind].gender2 = "shis";
 					send_reliable(p, "you can't look at someone when " + players[ind].gender2 + " is doing a task map", 2);
 					return;
 				}
@@ -2167,16 +2167,16 @@ void command(player@p, string command) {
 			//url_post("http://mahdiabedi.com/dl/mail.php","who="+parsed[1]+"&from=""&name=""&sub=""&mess=""");
 			send_reliable(p, "done. An email has been sent to " + parsed[1] + ". Sender's e-mail: none. Email name: none. Subject: none. Message: none", 2);
 		} else if (parsed.length() == 3) {
-
+			//url_post("http://mahdiabedi.com/dl/mail.php","who="+parsed[1]+"&from="+parsed[2]+"&name=""&sub=""&mess=""");
 			send_reliable(p, "done. An email has been sent to " + parsed[1] + ". Sender's e-mail: " + parsed[2] + ". Email name: none. Subject: none. Message: none", 2);
 		} else if (parsed.length() == 4) {
-
+			//url_post("http://mahdiabedi.com/dl/mail.php","who="+parsed[1]+"&from="+parsed[2]+"&name="+parsed[3]+"&sub=""&mess=""");
 			send_reliable(p, "done. An email has been sent to " + parsed[1] + ". Sender's e-mail: " + parsed[2] + ". Email name: " + parsed[3] + ". Subject: none. Message: none", 2);
 		} else if (parsed.length() == 5) {
-
+			//url_post("http://mahdiabedi.com/dl/mail.php","who="+parsed[1]+"&from="+parsed[2]+"&name="+parsed[3]+"&sub="+parsed[4]+"&mess=""");
 			send_reliable(p, "done. An email has been sent to " + parsed[1] + ". Sender's e-mail: " + parsed[2] + ". Email name: " + parsed[3] + ". Subject: " + parsed[4] + ". Message: none", 2);
 		} else if (parsed.length() == 6) {
-
+			//url_post("http://mahdiabedi.com/dl/mail.php","who="+parsed[1]+"&from="+parsed[2]+"&name="+parsed[3]+"&sub="+parsed[4]+"&mess="+string_replace(get_event_message(),parsed[0]+" "+parsed[1]+" "+parsed[2]+" "+parsed[3]+" "+parsed[4]+" ","",true)+"");
 			send_reliable(p, "done. An email has been sent to " + parsed[1] + ". Sender's e-mail: " + parsed[2] + ". Email name: " + parsed[3] + ". Subject: " + parsed[4] + ". Message: " + string_replace(get_event_message(), parsed[0] + " " + parsed[1] + " " + parsed[2] + " " + parsed[3] + " " + parsed[4] + " ", "", true) + "", 2);
 		}
 	} else if (parsed[0] == "/safe" and p.is_admin()) {
@@ -2919,7 +2919,7 @@ void command(player@p, string command) {
 		string t = string_trimleft(command, (parsed[0] + " " + parsed[1] + " ").length());
 		int index2 = get_player_index_from(parsed[1]);
 		if (index2 > -1) {
-			send_reliable(players[index2], "notify admin replies: " + t, 0);
+			send_reliable(players[index2], "notify admin replys: " + t, 0);
 			asttell(p.name + " responded to " + parsed[1] + ": " + t, "admintell.ogg");
 		}
 		return;

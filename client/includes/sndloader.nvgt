@@ -22,7 +22,7 @@ void sound_init() {
 	string[] signs = string_split(signtypes, "\r\n", false);
 	string[] platforms = string_split(tiletypes, "\r\n", false);
 	for (uint x = 0; x < list.length(); x++) {
-		//lets cut the ogg extension to make array searching work.
+		//lets cut the ogg extention to make array searching work.
 		string soundfile = string_trim_right(list[x], 4);
 		if (ambs.find(soundfile) > -1 or ds1s.find(soundfile) > -1 or ds2s.find(soundfile) > -1 or ds3s.find(soundfile) > -1 or ds4s.find(soundfile) > -1 or signs.find(soundfile) > -1 or platforms.find(soundfile) > -1) list.remove_at(x);
 	}

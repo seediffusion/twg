@@ -28,7 +28,7 @@ class team_store {
 					return;
 				}
 				canbuy = teams[ind].points / p;
-				items += string_replace(item_names[i], "_", " ", true) + ". costs " + p + " points. You can buy " + canbuy + ". " + get_item_description(item_names[i]).replace(":", "-") + ":" + item_names[i] + "[]";
+				items += string_replace(item_names[i], "_", " ", true) + ". costs " + p + " points. You can buy " + canbuy + ". " + get_item_descryption(item_names[i]).replace(":", "-") + ":" + item_names[i] + "[]";
 			}
 			send_menu(peer, string_replace(name, "_", " ", true), "team_buysomething", items);
 		}

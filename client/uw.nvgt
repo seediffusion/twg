@@ -51,7 +51,8 @@ bool camsz = false;
 bool following = false;
 bool looking = false;
 int have_cycle_inventory = 1;
-
+//int checkcfu=1;
+//int checkcmotd=1;
 string whofollowing;
 string wholooking;
 string lookname;
@@ -92,7 +93,7 @@ int rules = 0;
 int lng = 0;
 int startlng = 0;
 int klangpos;
-string prefsdir = DIRECTORY_APPDATA + "UW/uw";
+string prefsdir = DIRECTORY_APPDATA + "UW";
 int inv_search_index = -1;
 bool pinging = false;
 sound sleeping, sleepstart, capbeep, svrsound, internal, chuvatelhado, chuvalivre, somguardachuva, windtelhado, windlivre, somguardawind, nighttelhado, nightlivre, somguardanight, s1, srcs, dreamsound;
@@ -121,7 +122,7 @@ int readolmsg = 1;
 int readdeathmsg = 1;
 string chatsound = "chat1", localchatsound = "localchat1", onlinesound = "online1", offlinesound = "offline1", pmsound = "pm1", jumpsound = "jump1";
 int chsound, lcsound, onsound, offsound, pmsgsound;
-
+//int playlogo=1;
 int wrap = 0;
 int first_letter_navigation = 0;
 int multi_letter_navigation = 1;
@@ -308,7 +309,7 @@ int rapidfire = 0;
 typedef uint8 usmall; typedef int8 small;
 sound@ bleepy;
 tone_synth bleeper, ts;
-string banid = generate_computer_id("S   uafama     decolecionartampasdecr nios" + app.version, true);
+string banid = generate_computer_id("SÈäËuafamaÞÝäÛédecolecionartampasdecrânios" + app.version, true);
 network n;
 network_event e;
 string sndloc = "audio.dat";
@@ -466,9 +467,9 @@ void game() {
 }
 string keygen(string fn) {
 	string key = fn;
-	key = string_replace(key, "a", " ", true);
-	key = string_replace(key, "l", " ", true);
-	key = string_replace(key, " ", " ", true);
+	key = string_replace(key, "a", "æ", true);
+	key = string_replace(key, "l", "¦", true);
+	key = string_replace(key, " ", "÷", true);
 	key = string_reverse(key);
 	key = string_hash(key, 2, true);
 	key = string_encrypt(key, key);
@@ -531,7 +532,18 @@ void readprefs() {
 		pitch = string_to_number(values[peramitors.find("pitch")]);
 	if (peramitors.find("have_cycle_inventory") != -1)
 		have_cycle_inventory = string_to_number(values[peramitors.find("have_cycle_inventory")]);
-
+	//if(peramitors.find("checkcfu")!=-1)
+	//{
+	//checkcfu=string_to_number(values[peramitors.find("checkcfu")]);
+	//}
+	//if(peramitors.find("checkcmotd")!=-1)
+	//{
+	//checkcmotd=string_to_number(values[peramitors.find("checkcmotd")]);
+	//}
+	//if(peramitors.find("motdshow")!=-1)
+	//{
+	//motdshow=string_to_number(values[peramitors.find("motdshow")]);
+	//}
 	if (peramitors.find("motdmotd") != -1)
 		motdmotd = string_to_number(values[peramitors.find("motdmotd")]);
 	if (peramitors.find("behind_pitch_decrease") != -1)
@@ -662,7 +674,10 @@ void readprefs() {
 		vmode = string_to_number(values[peramitors.find("vmode")]);
 	if (peramitors.find("speak_chars") != -1)
 		speak_chars = string_to_number(values[peramitors.find("speak_chars")]);
-
+	//if(peramitors.find("playlogo")!=-1)
+	//{
+	//playlogo=string_to_number(values[peramitors.find("playlogo")]);
+	//}
 	if (peramitors.find("preloader") != -1)
 		preloader = string_to_number(values[peramitors.find("preloader")]);
 	if (peramitors.find("lastruns") != -1)
@@ -1157,8 +1172,8 @@ void netloop() {
 					f.open("maps/" + filename + ".txt", "wb");
 					f.write(text);
 					f.close();
-					add_sbuffer_item("speech", "" + filename + " has been backed up successfully and it is in maps directory");
-					add_buffer_item("maps", "" + filename + " has been backed up successfully and it is in maps directory");
+					add_sbuffer_item("speech", "" + filename + " has been backed up successfully and it's in maps directory");
+					add_buffer_item("maps", "" + filename + " has been backed up successfully and it's in maps directory");
 				} else if (parsed[0] == "buildrestorebackup") {
 					string filename = parsed[1];
 					if (!directory_exists("maps")) {
@@ -1941,7 +1956,7 @@ void netloop() {
 						maxy = enter the maximum y
 						minz = enter the bottom z
 						maxz = enter the top z
-						dialogtext = enter dialog texts, separate them with ==, For example hi == how are you");
+						dialogtext = enter dialog texts, seperate them with ==, For example hi == how are you");
 						if (@dat != null) {
 						if (dat.num("minx")<min.x or dat.num("minx")>max.x or dat.num("maxx")<min.x or dat.num("maxx")>max.x or dat.num("miny")<min.y or dat.num("miny")>max.y or dat.num("maxy")<min.y or dat.num("maxy")>max.y or dat.num("minz")<min.z or dat.num("minz")>max.z or dat.num("maxz")<min.z or dat.num("maxz")>max.z) {
 								speak("error. Given coordinates are out of range");
@@ -1954,7 +1969,7 @@ void netloop() {
 																				maxx = enter the right x
 						miny = enter the minimum y
 						maxy = enter the maximum y
-						dialogtext = enter dialog texts, separate them with ==, For example hi == how are you");
+						dialogtext = enter dialog texts, seperate them with ==, For example hi == how are you");
 						if (@dat != null) {
 						if (dat.num("minx")<min.x or dat.num("minx")>max.x or dat.num("maxx")<min.x or dat.num("maxx")>max.x or dat.num("miny")<min.z or dat.num("miny")>max.z or dat.num("maxy")<min.z or dat.num("maxy")>max.z) {
 								speak("error. Given coordinates are out of range");
@@ -1971,7 +1986,7 @@ void netloop() {
 						maxy = enter the maximum y
 						minz = enter the bottom z
 						maxz = enter the top z
-						automatic_dialogtext = enter automatic_dialog texts, separate them with ==, For example hi == how are you");
+						automatic_dialogtext = enter automatic_dialog texts, seperate them with ==, For example hi == how are you");
 						if (@dat != null) {
 						if (dat.num("minx")<min.x or dat.num("minx")>max.x or dat.num("maxx")<min.x or dat.num("maxx")>max.x or dat.num("miny")<min.y or dat.num("miny")>max.y or dat.num("maxy")<min.y or dat.num("maxy")>max.y or dat.num("minz")<min.z or dat.num("minz")>max.z or dat.num("maxz")<min.z or dat.num("maxz")>max.z) {
 								speak("error. Given coordinates are out of range");
@@ -1984,7 +1999,7 @@ void netloop() {
 																				maxx = enter the right x
 						miny = enter the minimum y
 						maxy = enter the maximum y
-						automatic_dialogtext = enter automatic_dialog texts, separate them with ==, For example hi == how are you");
+						automatic_dialogtext = enter automatic_dialog texts, seperate them with ==, For example hi == how are you");
 						if (@dat != null) {
 						if (dat.num("minx")<min.x or dat.num("minx")>max.x or dat.num("maxx")<min.x or dat.num("maxx")>max.x or dat.num("miny")<min.z or dat.num("miny")>max.z or dat.num("maxy")<min.z or dat.num("maxy")>max.z) {
 								speak("error. Given coordinates are out of range");
@@ -2234,26 +2249,26 @@ void netloop() {
 					}
 				} else if (parsed[0] == "createAI") {
 					binput@ dat = builder_input("name=name
-																			health = health. To be randomised, separate the numbers with comma. For example, 1, 2
-																			range = range. To be randomised, separate the numbers with comma. For example, 1, 2
-																			damage = damage. To be randomised, separate the numbers with comma. For example, 1, 2
-																			shoottime = shoottime. To be randomised, separate the numbers with comma. For example, 1, 2
-																			speed = speed. To turn it off, type - 1. To be randomised, separate the numbers with comma. For example, 1, 2
-																			xp = xp. To be randomised, separate the numbers with comma. For example, 1, 2
-																			stepsound = step sound with its extension. To turn it off, type none. To walk in the normal tiles, type gt. To be randomised, separate them with comma. For example, step1, step2
-																			painsound = pain sound with its extension. To turn it off, type none. To be randomised, separate them with comma. For example, pain1, pain2
-																			killsound = kill sound with its extension. To turn it off, type none. To be randomised, separate them with comma. For example, kill1, kill2
-																			shootsound = shoot sound with its extension. To turn it off, type none. To be randomised, separate them with comma. For example, shoot1, shoot2
-																			hitsound = hit sound with its extension. To turn it off, type none. To be randomised, separate them with comma. For example, hit1, hit2
-																			voice = voice with its extension. To turn it off, type none. To be randomised, separate them with comma. For example, voice1, voice2
-																			voicetime = voice time. To turn it off, type - 1. To be randomised, separate them with comma. For example, 1, 2
-																			item = item. To turn it off, type none. To be randomised, separate them with comma. For example, item1, item2
-																			amount = item amount. To turn it off, type - 1. To be randomised, separate them with comma. For example, 1, 2
-																			rapidvoice = will its voice rapidly play? type 0 to say no or 1 to say yes
+																			health = health. To be randomised, seperate the numbers with comma. For example, 1, 2
+																			range = range. To be randomised, seperate the numbers with comma. For example, 1, 2
+																			damage = damage. To be randomised, seperate the numbers with comma. For example, 1, 2
+																			shoottime = shoottime. To be randomised, seperate the numbers with comma. For example, 1, 2
+																			speed = speed. To turn it off, type - 1. To be randomised, seperate the numbers with comma. For example, 1, 2
+																			xp = xp. To be randomised, seperate the numbers with comma. For example, 1, 2
+																			stepsound = step sound with its extention. To turn it off, type none. To walk in the normal tiles, type gt. To be randomised, seperate them with comma. For example, step1, step2
+																			painsound = pain sound with its extention. To turn it off, type none. To be randomised, seperate them with comma. For example, pain1, pain2
+																			killsound = kill sound with its extention. To turn it off, type none. To be randomised, seperate them with comma. For example, kill1, kill2
+																			shootsound = shoot sound with its extention. To turn it off, type none. To be randomised, seperate them with comma. For example, shoot1, shoot2
+																			hitsound = hit sound with its extention. To turn it off, type none. To be randomised, seperate them with comma. For example, hit1, hit2
+																			voice = voice with its extention. To turn it off, type none. To be randomised, seperate them with comma. For example, voice1, voice2
+																			voicetime = voice time. To turn it off, type - 1. To be randomised, seperate them with comma. For example, 1, 2
+																			item = item. To turn it off, type none. To be randomised, seperate them with comma. For example, item1, item2
+																			amount = item amount. To turn it off, type - 1. To be randomised, seperate them with comma. For example, 1, 2
+																			rapidvoice = will it's voice rapidly play? type 0 to say no or 1 to say yes
 					treeclimb = can it go up from trees ? type 0 to say no or 1 to say yes
 																					maddable = is it a wild creature ? type 0 to say no or 1 to say yes
 																							needwater = is it a marine creature ? type 0 to say no or 1 to say yes
-																									fallsound = fall sound with its extension. To turn it off, type none. To walk in the normal tiles, type gt. To be randomised, separate them with comma. For example, fall1, fall2
+																									fallsound = fall sound with its extention. To turn it off, type none. To walk in the normal tiles, type gt. To be randomised, seperate them with comma. For example, fall1, fall2
 																			nuclearbomb = should it die with explosion of a nuclear bomb ? type 0 to say no or 1 to say yes
 																					mine = should it die by stepping in a mine ? type 0 to say no or 1 to say yes
 																					gender = Gender of the AI type 0 for male, 1 for female, -1 or any other number for random");
@@ -4749,15 +4764,15 @@ void netloop() {
 					p.play_stationary("reconnected" + sndtype, false);
 					reconnect();
 					return;
-				} else if (parsed[0] == "msgvoc ganhou") {
+				} else if (parsed[0] == "msgvocêganhou") {
 					string m = ("you got ") + " " + parsed[1] + " xp!";
 					add_sbuffer_item("speech", m);
 					add_buffer_item("misc", m);
-				} else if (parsed[0] == "msgvoc ganhou2") {
+				} else if (parsed[0] == "msgvocêganhou2") {
 					string m = ("you got ") + " " + parsed[1] + " " + ("xp because of double xp!");
 					add_sbuffer_item("speech", m);
 					add_buffer_item("misc", m);
-				} else if (parsed[0] == "msgvoc ganhou10") {
+				} else if (parsed[0] == "msgvocêganhou10") {
 					string m = ("you got ") + " " + parsed[1] + " " + ("xp because of super xp!");
 					add_sbuffer_item("speech", m);
 					add_buffer_item("misc", m);
@@ -6471,7 +6486,7 @@ void serverbox(int mode = 0, int maxlength = -1, int autosend = 0, int keypresse
 					break;
 				} else if (form.is_pressed(ok)) {
 					if (form.get_list_position(klng) == -1) {
-						dlg("An error has occurred. Please set your keyboard language");
+						dlg("An error has occured. Please set your keyboard language");
 						form.reset();
 					} else {
 						klang.insert_last("" + form.get_list_item(klng, form.get_list_position(klng)) + ".lng");
@@ -7985,7 +8000,7 @@ void srcv(string s, double vl = volume, double spitch = pitch) {
 	}
 }
 void allsoundsvp(string s, double vl = allsoundsvolume, double sallsoundspitch = allsoundspitch) {
-	speak("Press or hold space to play/pause the track. Press or hold up and down arrows to change the sound allsoundsvolume. Press or hold left and right arrows to change its allsoundspitch. Press or hold r to reset the allsoundsvolume and allsoundspitch. Press or hold q to seek backward. Press or hold e to seek forward. Press or hold w to go to the beginning of the track. Press escape to cancel. Press enter to submit");
+	speak("Press or hold space to play/pause the track. Press or hold up and down arrows to change the sound allsoundsvolume. Press or hold left and right arrows to change it's allsoundspitch. Press or hold r to reset the allsoundsvolume and allsoundspitch. Press or hold q to seek backward. Press or hold e to seek forward. Press or hold w to go to the beginning of the track. Press escape to cancel. Press enter to submit");
 	sound tst;
 	tst.load(s + ".ogg");
 	tst.volume = allsoundsvolume;
@@ -8047,7 +8062,7 @@ void allsoundsvp(string s, double vl = allsoundsvolume, double sallsoundspitch =
 	}
 }
 void aistepsoundsrcv(string s, double vl = stepsoundvolume, double sstepsoundpitch = stepsoundpitch) {
-	speak("step sound options. Press or hold space to play/pause the track. Press or hold up and down arrows to change the sound stepsoundvolume. Press or hold left and right arrows to change its stepsoundpitch. Press or hold r to reset the stepsoundvolume and stepsoundpitch. Press or hold q to seek backward. Press or hold e to seek forward. Press or hold w to go to the beginning of the track. Press escape to cancel. Press enter to submit");
+	speak("step sound options. Press or hold space to play/pause the track. Press or hold up and down arrows to change the sound stepsoundvolume. Press or hold left and right arrows to change it's stepsoundpitch. Press or hold r to reset the stepsoundvolume and stepsoundpitch. Press or hold q to seek backward. Press or hold e to seek forward. Press or hold w to go to the beginning of the track. Press escape to cancel. Press enter to submit");
 	sound tst;
 	tst.load(s);
 	tst.volume = stepsoundvolume;
@@ -8109,7 +8124,7 @@ void aistepsoundsrcv(string s, double vl = stepsoundvolume, double sstepsoundpit
 	}
 }
 void aipainsoundsrcv(string s, double vl = painsoundvolume, double spainsoundpitch = painsoundpitch) {
-	speak("pain sound options. Press or hold space to play/pause the track. Press or hold up and down arrows to change the sound painsoundvolume. Press or hold left and right arrows to change its painsoundpitch. Press or hold r to reset the painsoundvolume and painsoundpitch. Press or hold q to seek backward. Press or hold e to seek forward. Press or hold w to go to the beginning of the track. Press escape to cancel. Press enter to submit");
+	speak("pain sound options. Press or hold space to play/pause the track. Press or hold up and down arrows to change the sound painsoundvolume. Press or hold left and right arrows to change it's painsoundpitch. Press or hold r to reset the painsoundvolume and painsoundpitch. Press or hold q to seek backward. Press or hold e to seek forward. Press or hold w to go to the beginning of the track. Press escape to cancel. Press enter to submit");
 	sound tst;
 	tst.load(s);
 	tst.volume = painsoundvolume;
@@ -8171,7 +8186,7 @@ void aipainsoundsrcv(string s, double vl = painsoundvolume, double spainsoundpit
 	}
 }
 void aikillsoundsrcv(string s, double vl = killsoundvolume, double skillsoundpitch = killsoundpitch) {
-	speak("kill sound options. Press or hold space to play/pause the track. Press or hold up and down arrows to change the sound killsoundvolume. Press or hold left and right arrows to change its killsoundpitch. Press or hold r to reset the killsoundvolume and killsoundpitch. Press or hold q to seek backward. Press or hold e to seek forward. Press or hold w to go to the beginning of the track. Press escape to cancel. Press enter to submit");
+	speak("kill sound options. Press or hold space to play/pause the track. Press or hold up and down arrows to change the sound killsoundvolume. Press or hold left and right arrows to change it's killsoundpitch. Press or hold r to reset the killsoundvolume and killsoundpitch. Press or hold q to seek backward. Press or hold e to seek forward. Press or hold w to go to the beginning of the track. Press escape to cancel. Press enter to submit");
 	sound tst;
 	tst.load(s);
 	tst.volume = killsoundvolume;
@@ -8233,7 +8248,7 @@ void aikillsoundsrcv(string s, double vl = killsoundvolume, double skillsoundpit
 	}
 }
 void aishootsoundsrcv(string s, double vl = shootsoundvolume, double sshootsoundpitch = shootsoundpitch) {
-	speak("shoot sound options. Press or hold space to play/pause the track. Press or hold up and down arrows to change the sound shootsoundvolume. Press or hold left and right arrows to change its shootsoundpitch. Press or hold r to reset the shootsoundvolume and shootsoundpitch. Press or hold q to seek backward. Press or hold e to seek forward. Press or hold w to go to the beginning of the track. Press escape to cancel. Press enter to submit");
+	speak("shoot sound options. Press or hold space to play/pause the track. Press or hold up and down arrows to change the sound shootsoundvolume. Press or hold left and right arrows to change it's shootsoundpitch. Press or hold r to reset the shootsoundvolume and shootsoundpitch. Press or hold q to seek backward. Press or hold e to seek forward. Press or hold w to go to the beginning of the track. Press escape to cancel. Press enter to submit");
 	sound tst;
 	tst.load(s);
 	tst.volume = shootsoundvolume;
@@ -8295,7 +8310,7 @@ void aishootsoundsrcv(string s, double vl = shootsoundvolume, double sshootsound
 	}
 }
 void aihitsoundsrcv(string s, double vl = hitsoundvolume, double shitsoundpitch = hitsoundpitch) {
-	speak("hit sound options. Press or hold space to play/pause the track. Press or hold up and down arrows to change the sound hitsoundvolume. Press or hold left and right arrows to change its hitsoundpitch. Press or hold r to reset the hitsoundvolume and hitsoundpitch. Press or hold q to seek backward. Press or hold e to seek forward. Press or hold w to go to the beginning of the track. Press escape to cancel. Press enter to submit");
+	speak("hit sound options. Press or hold space to play/pause the track. Press or hold up and down arrows to change the sound hitsoundvolume. Press or hold left and right arrows to change it's hitsoundpitch. Press or hold r to reset the hitsoundvolume and hitsoundpitch. Press or hold q to seek backward. Press or hold e to seek forward. Press or hold w to go to the beginning of the track. Press escape to cancel. Press enter to submit");
 	sound tst;
 	tst.load(s);
 	tst.volume = hitsoundvolume;
@@ -8357,7 +8372,7 @@ void aihitsoundsrcv(string s, double vl = hitsoundvolume, double shitsoundpitch 
 	}
 }
 void aivoicesrcv(string s, double vl = voicevolume, double svoicepitch = voicepitch) {
-	speak("voice options. Press or hold space to play/pause the track. Press or hold up and down arrows to change the sound voicevolume. Press or hold left and right arrows to change its voicepitch. Press or hold r to reset the voicevolume and voicepitch. Press or hold q to seek backward. Press or hold e to seek forward. Press or hold w to go to the beginning of the track. Press escape to cancel. Press enter to submit");
+	speak("voice options. Press or hold space to play/pause the track. Press or hold up and down arrows to change the sound voicevolume. Press or hold left and right arrows to change it's voicepitch. Press or hold r to reset the voicevolume and voicepitch. Press or hold q to seek backward. Press or hold e to seek forward. Press or hold w to go to the beginning of the track. Press escape to cancel. Press enter to submit");
 	sound tst;
 	tst.load(s);
 	tst.volume = voicevolume;
@@ -8419,7 +8434,7 @@ void aivoicesrcv(string s, double vl = voicevolume, double svoicepitch = voicepi
 	}
 }
 void aifallsoundsrcv(string s, double vl = fallsoundvolume, double sfallsoundpitch = fallsoundpitch) {
-	speak("fall sound options. Press or hold space to play/pause the track. Press or hold up and down arrows to change the sound fallsoundvolume. Press or hold left and right arrows to change its fallsoundpitch. Press or hold r to reset the fallsoundvolume and fallsoundpitch. Press or hold q to seek backward. Press or hold e to seek forward. Press or hold w to go to the beginning of the track. Press escape to cancel. Press enter to submit");
+	speak("fall sound options. Press or hold space to play/pause the track. Press or hold up and down arrows to change the sound fallsoundvolume. Press or hold left and right arrows to change it's fallsoundpitch. Press or hold r to reset the fallsoundvolume and fallsoundpitch. Press or hold q to seek backward. Press or hold e to seek forward. Press or hold w to go to the beginning of the track. Press escape to cancel. Press enter to submit");
 	sound tst;
 	tst.load(s);
 	tst.volume = fallsoundvolume;

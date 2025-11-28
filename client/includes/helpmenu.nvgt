@@ -5,15 +5,15 @@ void helpmenu() {
 	c.add("mutelist: shows list of players that you've muted", "mutelist");
 	c.add("mute playername: mutes playername. It means he can't send you pm", "mute");
 	c.add("unmute playername: unmutes playername. It means muted player can send you pm again", "unmute");
-	c.add("setemail EmailAddress: sets your email", "setemail");
+	c.add("setemail EmailAddress: sets you're email", "setemail");
 	c.add("me msg: says a me message.", "me");
-	c.add("pm playername message: sends them a private message ", "pm");
-	c.add("r message: replies to the last person who sent you a message. and you can use /reply zone. Also if you wanna leave you can use /leavefight", "r");
+	c.add("pm playername messsage: sends them a private message ", "pm");
+	c.add("r message: replys to the last person who sent you a message. and you can use /reply zone. Also if you wanna leave you can use /leavefight", "r");
 	c.add("staff: shows you game staff", "staff");
 	c.add(" admintell message: Sends a message to current online admins. ", "admintell");
 	c.add("rules: display the game's rules.", "rules");
 	c.add("nicknamefind playername: finds playername's nickname", "nicknamefind");
-	c.add("afk: turns on or off your AFK", "afk");
+	c.add("afk: turns on or off you're AFK", "afk");
 	c.add("bid amount: bids the amount of item that auctioner requested if there's any auction available", "bid");
 	c.add("currentauction: it tells you whats in the auction currently", "currentauction");
 	c.add("playtime: checks total playtime of everyone", "playtime");
@@ -53,14 +53,14 @@ void helpmenu() {
 	c.add("xpstatus: will tell you if any special xp is enabled", "xpstatus");
 	c.add("xppotion: will tell you the remaining xp potion's time", "xppotion");
 	if (lcm == true or admin == true or manager == true or !SCRIPT_COMPILED) {
-		c.add("cnotify message: notifies the channel that you are its lcm", "cnotify");
+		c.add("cnotify message: notifies the channel that you are it's lcm", "cnotify");
 		c.add("adminrules: View the admin rules.", "adminrules");
 	}
 	if (admin) {
 		c.add("compinfo playername: gets playername's computer info", "compinfo");
 		c.add("mineclear: clears all mines", "mineclear");
-		c.add("timebombsweeper: puts 250 timebombs on your map", "timebombsweeper");
-		c.add("censorbombsweeper: puts 250 timebombs on your map", "timebombsweeper");
+		c.add("timebombsweeper: puts 250 timebombs on you're map", "timebombsweeper");
+		c.add("censorbombsweeper: puts 250 timebombs on you're map", "timebombsweeper");
 		c.add("aiinfo: checks information of ai's which are currently in the maps", "aiinfo");
 		c.add("ailist: Gets list of ai's", "ailist");
 		c.add("anote: get the admin note Written by the developers.", "anote");
@@ -73,9 +73,9 @@ void helpmenu() {
 		c.add("move  playername x y z optional_map_name: will move a player to a set of coordinates and if needed in to a new map.", "move");
 		c.add("fastpvp: This command may optionally take a player name, if none is given then it defaults to you. It makes player pvp so fast, or stops it", "fastpvp");
 		c.add("safe: This command may optionally take a player name, if none is given then it defaults to you. It makes player safe or unsafe", "safe");
-		c.add("supersafe: This command may optionally take a player name, if none is given then it defaults to you. It makes player supersafe or un super safe. Super safe means when player is falling he won't lose any health", "supersafe");
+		c.add("supersafe: This command may optionally take a player name, if none is given then it defaults to you. It makes player supersafe or un super safe. Super safe means when player is falling he won't loos any health", "supersafe");
 		c.add("give playername itemname value: gives value of itemname to playername's inventory.", "give");
-		c.add("giveall item amount: gives specified amount  of an item to all players", "giveall");
+		c.add("giveall item amount: gives spesified amount  of an item to all players", "giveall");
 		c.add("newmotd message: sets the message of the day.", "newmotd");
 		c.add("notify Message: will notify the server", "notify");
 		c.add("playernotify PlayerName FileName.ogg Message: notifies a player only", "playernotify");
@@ -103,12 +103,12 @@ void helpmenu() {
 		c.add("setfeces playername feces: sets playername's feces", "setfeces");
 		c.add("banguide: shows ban commands", "banguide");
 		c.add("eventhelp: shows event commands", "eventhelp");
-		c.add("changemymap mapname: changes your map", "changemymap");
+		c.add("changemymap mapname: changes you're map", "changemymap");
 		c.add("mapexists mapname: checks existence of a map", "mapexists");
 		c.add("maps: brings up a menu contains all available map names. Press enter to go to the each one", "maps");
 		c.add("maplist: gives a list of the available maps. ", "maplist");
 		c.add("rawdata MapData: : Sets the map's data to MapData , This could be useless if you got the map data from /rawmap, Modified it, then you and want it back in the map.", "rawdata");
-		c.add("rawmap: : Returns the entire map data, This could be useless while you are building maps. ", "rawmap");
+		c.add("rawmap: : Returns the entire map data, This could be eusless while you are building maps. ", "rawmap");
 		c.add("datasave: saves all data", "datasave");
 		c.add("doublexp: enables or disables double xp", "doublexp");
 		c.add("superxp: enables or disables super xp", "superxp");
@@ -120,7 +120,7 @@ void helpmenu() {
 		c.add("adminlog: shows adminlog", "adminlog");
 		c.add("addalog message: adds message to admin log", "addalog");
 		c.add("gamestop: freezes the game", "gamestop");
-		c.add("gamestart: unfreezes the game", "gamestart");
+		c.add("gamestart: unfreazes the game", "gamestart");
 		c.add("mapmove params: can move one or more players matching certain criteria to random spots on a map. Params can be one or more of: <playername>: a player to match directly: map:<name>: All players on a specified map: dest:<name>: a map they should be dumped to. Default value for this is main.", "mapmove");
 		c.add("blockfeature playername feature: blocks a feature from a player. example: /blockfeature mahdi chat. Blocks mahdi from sending chats.", "blockfeature");
 		c.add("cdata playername value: this command returns the player's value. For example: /cdata mahdi level: returns the level of the player mahdi. This can be any file in their char folder, examples are location and health. Some values update in realtime, such as inventory, and health.", "cdata");
@@ -141,7 +141,7 @@ void helpmenu() {
 		c.add("banid: shows list of players that banned by id", "banid");
 		c.add("getpass playername: gets playername's password", "getpass");
 		c.add("changepass playername: changes playername's password", "changepass");
-		c.add("cnotify message: notifies the channel that you are its lcm", "cnotify");
+		c.add("cnotify message: notifies the channel that you are it's lcm", "cnotify");
 		c.add("lcnotify channel message: notifies specified channnel. For example /lcnotify english hi", "notifyChannel");
 		c.add("chars: shows list of created accounts", "chars");
 		c.add("fastrestart: restarts the server without notifying players", "fastrestart");
@@ -161,7 +161,7 @@ void helpmenu() {
 		c.add("tthirst: starts or stops the thirst timer", "tthirst");
 		c.add("thunger: starts or stops the hunger timer", "thunger");
 		c.add("teamdestroy teamname: destroys the specified teamname", "teamdestroy");
-		c.add("teamdestroyold: tells you how many teams destroyed", "teamdestroyold");
+		c.add("teamdestroyold: tells you how much teams distroyed", "teamdestroyold");
 		c.add("setteampoints teamname points: sets the amount of points to a team", "setteampoints");
 		c.add("setteamkills teamname kills: sets the amount of kills to a team", "setteamkills");
 		c.add("votes: checks the list of votes", "votes");
@@ -182,9 +182,9 @@ void helpmenu() {
 		c.add("chartrash: kills the spam players", "chartrash");
 		c.add("delmap mapname: delete the map", "delmap");
 		c.add("addanote note: adds admin note", "addanote");
-		c.add("varset variable value: sets a saved variable to a specified value", "varset");
-		c.add("varremove variable: removes the saved variable", "varremove");
-		c.add("sendemail <receiver's e-mail> <sender's e-mail> <email name> <subject> <message>: sends email to the receiver. Just message can have spaces", "sendemail");
+		c.add("varset veriable value: sets a saved variable to a specified value", "varset");
+		c.add("varremove veriable: removes the saved variable", "varremove");
+		c.add("sendemail <reciever's e-mail> <sender's e-mail> <email name> <subject> <message>: sends email to the reciever. Just message can have spaces", "sendemail");
 	}
 	c.add("Go back", "back");
 	m.set_callback(netclb, "");
@@ -267,7 +267,7 @@ void helpmenu() {
 		if (msg != "")
 			send_reliable(peer_id, "/" + mres + " " + msg + "", 1);
 	} else if (mres == "sendemail") {
-		string msg = v.input("receiver's e-mail");
+		string msg = v.input("reciever's e-mail");
 		string msg2 = v.input("sender's e-mail");
 		string msg3 = v.input("e-mail name");
 		string msg4 = v.input("subject");
@@ -327,7 +327,7 @@ void helpmenu() {
 	} else if (mres == "playernotify") {
 		string msg = v.input("enter username");
 		if (msg != "") {
-			string msg2 = v.input("enter the file name with its extension");
+			string msg2 = v.input("enter the file name with it's extention");
 			if (msg2 != "") {
 				string msg3 = v.input("type your message here");
 				if (msg3 != "")

@@ -269,7 +269,7 @@ class house {
 					string packet;
 					if (hackmode == 1) {
 						if (security_boosts >= 0) security_boosts -= random(1, 100);
-						packet = "Hack successful! The house code is " + code;
+						packet = "Hack successfull! The house code is " + code;
 					} else {
 						if (security_boosts >= 0) security_boosts -= random(1, 100);
 						packet = "The hack did not complete successfully";
@@ -401,7 +401,7 @@ bool house_zoner(string map, string hmap, double x, double y, double z, bool d =
 }
 string house_buildable(player@ p) {
 	if (@p == null) return "Unknown";
-	if (!p.map.starts_with("residencial_area_")) return "You can only build in the residential areas";
+	if (!p.map.starts_with("residencial_area_")) return "You can only build in the residencial areas";
 	string z = get_zone_at(p.x, p.y, p.z, p.map);
 	string[] spaces = z.split(" ");
 	if (!z.lower().starts_with("number ") || spaces.length() > 2) return "You can only build on the numbered zones";

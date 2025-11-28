@@ -17,18 +17,18 @@ night:none.ogg
 tile:1:3:0:8:0:0:marble4
 tile:0:0:0:11:0:39:wall
 tile:4:4:0:7:0:39:wall
-zone:1:3:0:8:0:10:entrance hallway
+zone:1:3:0:8:0:10:entrence hallway
 zone:2:2:0:0:0:10:exit door:trackme
 src:2:2:0:0:0:10:-28:100:charm.ogg
 tile:2:2:0:0:0:0:carpet5
 tile:0:21:11:11:0:39:wall
 tile:4:21:7:7:0:39:wall
 tile:1:22:8:10:0:0:marble4
-zone:1:22:8:10:0:10:entrance hallway
-tile:22:22:9:9:0:0:entrance:trackme
+zone:1:22:8:10:0:10:entrence hallway
+tile:22:22:9:9:0:0:entrence:trackme
 tile:22:22:8:10:0:0:marble5
 zone:22:28:0:80:0:20:hallway
-zone:22:22:8:10:0:10:house entrance
+zone:22:22:8:10:0:10:house entrence
 tile:4:21:0:7:0:39:wall
 music:0:21:0:10:0:20:0:100:musical41.ogg:1
 automover:4:21:0:7:0:39:2:0:0:autocheck:0:silence.ogg:silence.ogg:silence.ogg:silence.ogg
@@ -229,7 +229,7 @@ tile:71:71:0:31:0:39:wall
 zone:30:70:0:30:0:20:living room
 music:29:70:0:30:0:20:-3:100:musical15.ogg:1
 tile:28:30:8:10:0:0:marble5
-zone:28:30:8:10:0:10:entrance to the living room:trackme
+zone:28:30:8:10:0:10:entrence to the living room:trackme
 tile:31:31:15:15:0:0:rockingchair:trackme
 tile:30:30:14:16:0:2:wallclothing
 tile:31:31:14:16:0:1:wallclothing
@@ -401,11 +401,11 @@ tile:56:64:63:63:1:1:plywood4
 zone:55:65:62:62:2:10:back of the bench
 zone:55:65:63:63:2:10:arm of the bench
 zone:56:64:63:63:1:10:bench:trackme
-zone:57:67:79:80:0:20:near the large window overlooking the residential area
+zone:57:67:79:80:0:20:near the large window overlooking the residencial area
 tile:58:66:80:80:0:39:wallglass5
 tile:61:63:80:80:5:12:air
 tile:61:63:80:80:4:4:cement3
-zone:61:63:80:80:4:10:the large window overlooking the residential area:trackme
+zone:61:63:80:80:4:10:the large window overlooking the residencial area:trackme
 src:60:64:80:80:0:20:-8:100:birds4.ogg
 src:60:64:80:80:0:20:-8:100:birds3.ogg
 tile:33:33:60:60:0:10:wallstone2
@@ -464,7 +464,7 @@ tile:75:75:76:80:0:39:wall
 tile:75:78:76:76:0:39:wall
 tile:76:78:77:80:0:0:bathtub2
 tile:78:78:75:76:0:0:marble4
-zone:78:78:75:76:0:10:shower entrance:trackme
+zone:78:78:75:76:0:10:shower entrence:trackme
 zone:76:78:77:80:0:10:shower
 shower:76:78:77:80:0:10
 tile:72:72:76:76:0:0:wallbrick2
@@ -473,7 +473,7 @@ zone:72:72:76:76:1:10:Toilet-Paper-Dispenser:trackme
 igdoor:72:72:76:76:1:1:72:76:1:you've took the toilet paper.:toilet_paper:1:15:silence.ogg:silence.ogg:toilet_paper_dispenser.ogg:silence.ogg
 zone:22:28:32:38:0:10:3way hallway intersection:trackme
 zone:72:78:32:38:0:10:3way hallway intersection:trackme
-description:applicant for the house competition 2025. 80x80x80size, rooms, entrance, storage, kitchen,, dining, hallway, living room, connecting hallway, bedroom, office, balcony, hallway, bathroom. stats, 19575 characters, 475 lines, 19.12 KB.
+description:applikent for the house compitition 2025. 80x80x80size, rooms, entrence, storage, kitchen,, dining, hallway, living room, connecting hallway, bedroom, office, balcony, hallway, bathroom. stats, 19575 characters, 475 lines, 19.12 KB.
 tile:32:34:79:79:0:1:wallclothing
 door:67:67:30:30:1:10:67:30:1: :500:silence.ogg:silence.ogg:clock_chime4.ogg:silence.ogg
 door:62:62:53:53:2:10:62:53:2: :500:silence.ogg:silence.ogg:clock_chime4.ogg:silence.ogg

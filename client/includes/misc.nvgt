@@ -1,7 +1,7 @@
 #include "bgt_compat.nvgt"#include "bgt_compat.nvgt"/*
 the misc file, by bran, with a functionitis attack by patrick.
-Here are some functions in here that I have written down either to shorten the creation of functions or the like.
-The usage of these functions is totally up to you, the user, and you can use which ever one you wish. Just make sure you know what you're doing.
+Here are some functions in here that I have wrote down either to shorten the creation of functions or the like.
+The usage of these functions is totally up to you, the user, and you can use which ever one you wish. Just make sure you know what your doing.
 */
 // here are 4 randomly generated keys for later use.
 string filetext;
@@ -48,7 +48,7 @@ void setkey(string fakekey, string realkey, int times = 100) {
 		set_sound_decryption_key(fakekey, false);
 	set_sound_decryption_key(realkey, true);
 }
-// the following function will create a directory. Unlike the whole checking for a directory that exists thing, this one already does that.
+// the ftllowing function will create a directory. Unlike the hole checking for a directory that exists thing, this one already does that.
 void dircreate(string dn, bool check = true) {
 	if (check == true) {
 		if (directory_exists(dn))
@@ -142,7 +142,7 @@ void restartnvda(bool x = false) { //We will check to see if the NVDA is in prog
 	if (x == true) run("c:/Program files(x86)/nvda/nvda.exe", "-r", false, false);
 	else if (x == false) run("c:/Program Files/nvda/nvda.exe", "-r", false, false);
 }
-//This will speak whatever you pass to it through sapi directly. This also has a wait bool so that you can force the script to wait until it is done speaking before continuing.
+//This will speak whatever you pass to it through sapi directly. This also has a wait bool so that you can forse the script to wait until it is done speaking before continueing.
 /*
 bool sapispeak(string what,bool wait=false)
 {

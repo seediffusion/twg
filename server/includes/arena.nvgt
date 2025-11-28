@@ -176,7 +176,7 @@ class arena {
 				}
 			}
 			send_reliable(0, "play_s notifyalert.ogg", 6);
-			send_reliable(0, "arena " + owner + "'s " + type + " Arena with a total of " + joined + " participants has been started!", 0);
+			send_reliable(0, "arena " + owner + "'s " + type + " Arena with a total of " + joined + " participators has been started!", 0);
 		}
 		if (started == 1 and length > 1 and joined == 1) {
 			for (uint i2 = 0; i2 < players.length(); i2++) {

@@ -170,28 +170,28 @@ void create() {
 			break;
 		} else if (form.is_pressed(ok)) {
 			if (form.get_text(user) == "" or string_contains(form.get_text(user), " ", 1) != -1 || !name_is_valid(form.get_text(user))) {
-				dlg("An error has occurred. Please check the username field and try again");
+				dlg("An error has occured. Please check the username field and try again");
 				creating = false;
 				form.reset();
 				reset_network();
 				mainmenu();
 				break;
 			} else if (form.get_text(pass) == "" or string_contains(form.get_text(pass), " ", 1) != -1) {
-				dlg("An error has occurred. Please check the password field and try again");
+				dlg("An error has occured. Please check the password field and try again");
 				creating = false;
 				form.reset();
 				reset_network();
 				mainmenu();
 				break;
 			} else if (form.get_text(email) == "" or string_contains(form.get_text(email), "@", 1) == -1) {
-				dlg("An error has occurred. Please check the e-mail field and try again");
+				dlg("An error has occured. Please check the e-mail field and try again");
 				creating = false;
 				form.reset();
 				reset_network();
 				mainmenu();
 				break;
 			} else if (form.get_list_position(gender) == -1) {
-				dlg("An error has occurred. Please set your gender in the gender selection list and try again");
+				dlg("An error has occured. Please set your gender in the gender selection list and try again");
 				creating = false;
 				form.reset();
 				reset_network();

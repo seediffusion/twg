@@ -247,7 +247,7 @@ void player_event(player@p, string event) {
 								s = maps[mi].owners[i] + ".";
 						if (maps[mi].owners.length() > 1) s2 = " " + maps[mi].owners.length() + " owners: ";
 						else s2 = " " + maps[mi].owners.length() + " owner: ";
-						m.add(maps[mi].name + ", updated " + get_map_update_short(maps[mi].name) + ". " + s2 + " " + s + " " + (maps[mi].litem == 1 ? "You will" : "You won't") + " lose your items when you die in this map. " + (maps[mi].minlevel > 0 ? "Level range: level " + maps[mi].minlevel + " until " + maps[mi].maxlevel + "." : " ") + " " + (maps[mi].minreinforcement > 0 ? "reinforcement range: reinforcement " + maps[mi].minreinforcement + " until " + maps[mi].maxreinforcement + "." : " ") + " " + (maps[mi].description != "" ? "" + maps[mi].description + "" : " ") + "", lines[i]);
+						m.add(maps[mi].name + ", updated " + get_map_update_short(maps[mi].name) + ". " + s2 + " " + s + " " + (maps[mi].litem == 1 ? "You will" : "You won't") + " loos your items when you die in this map. " + (maps[mi].minlevel > 0 ? "Level range: level " + maps[mi].minlevel + " untill " + maps[mi].maxlevel + "." : " ") + " " + (maps[mi].minreinforcement > 0 ? "reinforcement range: reinforcement " + maps[mi].minreinforcement + " untill " + maps[mi].maxreinforcement + "." : " ") + " " + (maps[mi].description != "" ? "" + maps[mi].description + "" : " ") + "", lines[i]);
 					}
 				}
 				m.send(p.peer_id);
@@ -280,7 +280,7 @@ void player_event(player@p, string event) {
 								s = maps[mi].owners[i] + ".";
 						if (maps[mi].owners.length() > 1) s2 = " " + maps[mi].owners.length() + " owners: ";
 						else s2 = " " + maps[mi].owners.length() + " owner: ";
-						m.add(maps[mi].name + ", updated " + get_map_update_short(maps[mi].name) + ". Reward: " + maps[mi].finishamount + " " + maps[mi].finishitem + ". " + s2 + " " + s + " " + (maps[mi].litem == 1 ? "You will" : "You won't") + " lose your items when you die in this map. " + (maps[mi].minlevel > 0 ? "Level range: level " + maps[mi].minlevel + " until " + maps[mi].maxlevel + "." : " ") + " " + (maps[mi].minreinforcement > 0 ? "reinforcement range: reinforcement " + maps[mi].minreinforcement + " until " + maps[mi].maxreinforcement + "." : " ") + " " + (maps[mi].description != "" ? "" + maps[mi].description + "" : " ") + "", lines[i]);
+						m.add(maps[mi].name + ", updated " + get_map_update_short(maps[mi].name) + ". Reward: " + maps[mi].finishamount + " " + maps[mi].finishitem + ". " + s2 + " " + s + " " + (maps[mi].litem == 1 ? "You will" : "You won't") + " loos your items when you die in this map. " + (maps[mi].minlevel > 0 ? "Level range: level " + maps[mi].minlevel + " untill " + maps[mi].maxlevel + "." : " ") + " " + (maps[mi].minreinforcement > 0 ? "reinforcement range: reinforcement " + maps[mi].minreinforcement + " untill " + maps[mi].maxreinforcement + "." : " ") + " " + (maps[mi].description != "" ? "" + maps[mi].description + "" : " ") + "", lines[i]);
 					}
 				}
 				m.send(p.peer_id);
@@ -299,7 +299,7 @@ void player_event(player@p, string event) {
 					if (string_contains(a[i], "house_of_", 1) == -1 and string_contains(a[i], "beehive_of_", 1) == -1 and string_contains(a[i], "store_of_", 1) == -1 and stringcontains(a[i], "apartment_of", 1) < 0 and stringcontains(a[i], "tent_of", 1) < 0) {
 						int mi = get_map_index(a[i]);
 						if ((mi > -1))
-							m.add(maps[mi].name + ", updated " + get_map_update_short(maps[mi].name) + ". " + s2 + " " + s + " " + (maps[mi].litem == 1 ? "You will" : "You won't") + " lose your items when you die in this map. " + (maps[mi].description != "" ? "" + maps[mi].description + "" : "No description available for this map") + "", a[i]);
+							m.add(maps[mi].name + ", updated " + get_map_update_short(maps[mi].name) + ". " + s2 + " " + s + " " + (maps[mi].litem == 1 ? "You will" : "You won't") + " loos your items when you die in this map. " + (maps[mi].description != "" ? "" + maps[mi].description + "" : "No description available for this map") + "", a[i]);
 					}
 				}
 				if (m.menuitems.length() < 1) {
@@ -332,7 +332,7 @@ void player_event(player@p, string event) {
 			for (uint i = 0; i < arenas.length(); i++) {
 				if (arenas[i].started == 0 and arenas[i].length > 1) {
 					int amath = arenas[i].length - arenas[i].joined;
-					m.add("" + arenas[i].owner + "'s " + arenas[i].type + " arena with a total of " + arenas[i].length + " participants. " + amath + " participants still left. Fee: " + arenas[i].neededfee + " " + arenas[i].item + ". This arena has a total of " + arenas[i].fee + " " + arenas[i].item + " to give to its winner", arenas[i].id);
+					m.add("" + arenas[i].owner + "'s " + arenas[i].type + " arena with a total of " + arenas[i].length + " participators. " + amath + " participators stil left. Fee: " + arenas[i].neededfee + " " + arenas[i].item + ". This arena has a total of " + arenas[i].fee + " " + arenas[i].item + " to give to it's winner", arenas[i].id);
 				}
 				if (arenas[i].length == 0)
 					m.add("" + arenas[i].owner + "'s continuous " + arenas[i].type + " arena", arenas[i].id);
@@ -350,11 +350,11 @@ void player_event(player@p, string event) {
 		double arenalength = string_to_number(parsed[1]);
 		parsed = string_split(parsed[0], "/", false);
 		if (arenalength < 2 and arenalength != 0) {
-			send_reliable(p, "participants must be more than one person", 2);
+			send_reliable(p, "participaters must be more than one person", 2);
 			return;
 		}
 		if (arenalength > players.length() and arenalength != 0) {
-			send_reliable(p, "participants must be less than the connected players", 2);
+			send_reliable(p, "participaters must be less than thee connected players", 2);
 			return;
 		}
 		send_serverbox(p.peer_id, 0, -1, -1, -1, "arenaitem/" + arenalength + "/" + parsed[1], "enter item name. Type noitem if this arena is continuous");
@@ -405,7 +405,7 @@ void player_event(player@p, string event) {
 						send_reliable(p, "you can type /suicide to go back", 2);
 					} else if (arenalength > 0) {
 						send_reliable(0, "play_s notify_news2.ogg", 6);
-						send_reliable(0, "arena " + p.name + " has created a " + arenas[i].type + " Arena with a total of " + arenas[i].length + " participants. Fee: " + arenas[i].neededfee + " " + parsed[3] + ". You can join to it by going to the safe zone map and finding the safe zone menu", 0);
+						send_reliable(0, "arena " + p.name + " has created a " + arenas[i].type + " Arena with a total of " + arenas[i].length + " participators. Fee: " + arenas[i].neededfee + " " + parsed[3] + ". You can join to it by going to the safe zone map and finding the safe zone menu", 0);
 						send_reliable(p, "you can type /suicide to go back", 2);
 					}
 					p.inv_add_item(parsed[3], -arenafee);
@@ -1199,7 +1199,7 @@ void player_event(player@p, string event) {
 		auction::make_bid(p, stn(parsed[1]));
 		return;
 	} else if (parsed[0] == "desc" && parsed.length() == 2)
-		send_reliable(p.peer_id, get_item_description(parsed[1]), 0);
+		send_reliable(p.peer_id, get_item_descryption(parsed[1]), 0);
 	else if (parsed[0] == "nickname" and parsed.length() > 1) {
 		if (p.nicktimer.elapsed >= 3600000 or p.dev == true) {
 			p.nicktimer.restart();
@@ -2141,7 +2141,7 @@ void player_event(player@p, string event) {
 		int id = get_player_index_from(parsed[1]);
 		if (id > -1) {
 			if (players[id].langchan == "disable_chat") send_reliable(p, "msg2 " + players[id].name + " has disabled chat", 0);
-else send_reliable(p, "msg2 " + players[id].name + " is in the " + players[id].langchan + " channel", 0);
+			else send_reliable(p, "msg2 " + players[id].name + " is in " + players[id].langchan + "", 0);
 		}
 	} else if (parsed[0] == "j3" and parsed.length() > 1) {
 		int id = get_player_index_from(parsed[1]);
@@ -3320,7 +3320,7 @@ else send_reliable(p, "msg2 " + players[id].name + " is in the " + players[id].l
 					return;
 				}
 				if (amount <= 0) {
-					send_reliable(p, "An error has occurred. Error region: item transfer. Error description: attempted to give non-positive number of item to a player", 2);
+					send_reliable(p, "An error has occured. Error region: item transfer. Error description: attempted to give non-positive number of item to a player", 2);
 					return;
 				}
 				p.inv_add_item(parsed[2], -amount);
@@ -3372,7 +3372,7 @@ else send_reliable(p, "msg2 " + players[id].name + " is in the " + players[id].l
 			string item = parsed[1];
 			double itemamount = p.inv_item_number(item);
 			if (itemamount <= 0) {
-				p.sendpacket("You don't' have any " + item + "", 0);
+				p.sendpacket("You dont' have any " + item + "", 0);
 				return;
 			}
 			if (string_contains(parsed[1], "rocket_launcher", 1) != -1 or string_contains(parsed[1], "nak_nk100_decimater", 1) != -1) {
@@ -4797,7 +4797,7 @@ else send_reliable(p, "msg2 " + players[id].name + " is in the " + players[id].l
 				server_menu2 m;
 				m.intro = "Choose an item to edit its description";
 				m.initial_packet = "edit_item_desc_select";
-				string[] items = descriptions.get_keys();
+				string[] items = descryptions.get_keys();
 				if (items.length() > 0) {
 					for (uint i = 0; i < items.length(); i++)
 						m.add(items[i], items[i]);
@@ -4810,7 +4810,7 @@ else send_reliable(p, "msg2 " + players[id].name + " is in the " + players[id].l
 				server_menu2 m;
 				m.intro = "Select an item to delete its description";
 				m.initial_packet = "del_desc";
-				string[] items = descriptions.get_keys();
+				string[] items = descryptions.get_keys();
 				if (items.length() > 0) {
 					for (uint i = 0; i < items.length(); i++)
 						m.add(items[i], items[i]);
@@ -4823,7 +4823,7 @@ else send_reliable(p, "msg2 " + players[id].name + " is in the " + players[id].l
 				server_menu2 m;
 				m.intro = "Select an item to view its description";
 				m.initial_packet = "view_item_desc";
-				string[] items = descriptions.get_keys();
+				string[] items = descryptions.get_keys();
 				if (items.length() > 0) {
 					for (uint i = 0; i < items.length(); i++)
 						m.add(items[i], items[i]);
@@ -4834,11 +4834,11 @@ else send_reliable(p, "msg2 " + players[id].name + " is in the " + players[id].l
 		}
 	} else if (parsed[0] == "add_item_desc" && parsed.length() > 2) {
 		if (p.assistant) {
-			if (descriptions.exists(parsed[1]) == true)
+			if (descryptions.exists(parsed[1]) == true)
 				send_reliable(p.peer_id, "This item already has a description", 2);
 			else {
 				string text = string_replace(get_event_message(), parsed[0] + " " + parsed[1] + " ", "", false);
-				descriptions.set(parsed[1], text);
+				descryptions.set(parsed[1], text);
 				save_descriptions();
 				send_reliable(p.peer_id, "Description added successfully", 2);
 			}
@@ -4850,7 +4850,7 @@ else send_reliable(p, "msg2 " + players[id].name + " is in the " + players[id].l
 		}
 		if (p.assistant) {
 			p.item_to_edit = parsed[1];
-			string current_desc = get_item_description(parsed[1]);
+			string current_desc = get_item_descryption(parsed[1]);
 			send_reliable(p.peer_id, "edit_item_desc " + current_desc, 0);
 		}
 	} else if (parsed[0] == "edit_item_desc" && parsed.length() > 1) {
@@ -4860,7 +4860,7 @@ else send_reliable(p, "msg2 " + players[id].name + " is in the " + players[id].l
 				return;
 			}
 			string new_desc = string_replace(get_event_message(), parsed[0] + " ", "", true);
-			descriptions.set(p.item_to_edit, new_desc);
+			descryptions.set(p.item_to_edit, new_desc);
 			save_descriptions();
 			send_reliable(p.peer_id, "Description edited successfully", 2);
 		}
@@ -4870,10 +4870,10 @@ else send_reliable(p, "msg2 " + players[id].name + " is in the " + players[id].l
 			return;
 		}
 		if (p.assistant) {
-			if (descriptions.exists(parsed[1]) == false)
+			if (descryptions.exists(parsed[1]) == false)
 				send_reliable(p.peer_id, "Description not available", 2);
 			else {
-				descriptions.delete(parsed[1]);
+				descryptions.delete(parsed[1]);
 				save_descriptions();
 				send_reliable(p.peer_id, "Description deleted successfully", 2);
 			}
@@ -4884,7 +4884,7 @@ else send_reliable(p, "msg2 " + players[id].name + " is in the " + players[id].l
 			return;
 		}
 		if (p.assistant) {
-			string desc = get_item_description(parsed[1]);
+			string desc = get_item_descryption(parsed[1]);
 			send_reliable(p.peer_id, desc, 2);
 		}
 	} else if (parsed[0] == "bdoor" and parsed.length() > 1) {
@@ -5679,7 +5679,7 @@ else send_reliable(p, "msg2 " + players[id].name + " is in the " + players[id].l
 		parsed = string_split(parsed[0], "/", false);
 		if (p.inv_item_number(parsed[1]) >= amount) {
 			if (amount <= 0) {
-				send_reliable(p, "An error has occurred", 0);
+				send_reliable(p, "An error has occured", 0);
 				return;
 			}
 			string[] a = string_split(file_get_contents("notadg.svr").replace("\r\n", "\n"), "\n");
@@ -9160,11 +9160,11 @@ else send_reliable(p, "msg2 " + players[id].name + " is in the " + players[id].l
 				if (maps[pmapind].chminx <= p.x and maps[pmapind].chmaxx >= p.x and maps[pmapind].chminy <= p.y and maps[pmapind].chmaxy >= p.y and maps[pmapind].chminz <= p.z and maps[pmapind].chmaxz >= p.z and maps[pmapind].finishitem != "" and maps[pmapind].finishamount > 0) {
 					if (maps[pmapind].finishitem == "coins" or maps[pmapind].finishitem == "credit") {
 						p.inv_add_item(maps[pmapind].finishitem, round(maps[pmapind].finishamount - (p.finishtasktimer.elapsed / 1000), 0));
-						send_reliable(p, "as a reward, you've received " + round(maps[pmapind].finishamount - (p.finishtasktimer.elapsed / 1000), 0) + " " + maps[pmapind].finishitem + "", 2);
+						send_reliable(p, "as a reward, you've recieved " + round(maps[pmapind].finishamount - (p.finishtasktimer.elapsed / 1000), 0) + " " + maps[pmapind].finishitem + "", 2);
 						bsend(0, "maps", "", p.name + " finished " + p.map + " in " + ms_to_readable_time(p.finishtasktimer.elapsed) + " and won " + round(maps[pmapind].finishamount - (p.finishtasktimer.elapsed / 1000), 0) + " " + maps[pmapind].finishitem + "!");
 					} else {
 						p.inv_add_item(maps[pmapind].finishitem, maps[pmapind].finishamount);
-						send_reliable(p, "as a reward, you've received " + maps[pmapind].finishamount + " " + maps[pmapind].finishitem + "", 2);
+						send_reliable(p, "as a reward, you've recieved " + maps[pmapind].finishamount + " " + maps[pmapind].finishitem + "", 2);
 						bsend(0, "maps", "", p.name + " finished " + p.map + " in " + ms_to_readable_time(p.finishtasktimer.elapsed) + " and won " + maps[pmapind].finishamount + " " + maps[pmapind].finishitem + "!");
 					}
 					p.finishtasktimer.restart();
@@ -9580,7 +9580,7 @@ else send_reliable(p, "msg2 " + players[id].name + " is in the " + players[id].l
 				move_player(p, "main_map", newx, newy, newz);
 				arenas[i2].joined--;
 				int amath = arenas[i2].length - arenas[i2].joined;
-				if (arenas[i2].length > 1) send_reliable(0, "arena " + p.name + " has escaped from " + arenas[i2].owner + "'s " + arenas[i2].type + " Arena. " + amath + " participants still left.", 0);
+				if (arenas[i2].length > 1) send_reliable(0, "arena " + p.name + " has escaped from " + arenas[i2].owner + "'s " + arenas[i2].type + " Arena. " + amath + " participators stil left.", 0);
 				else send_reliable(0, "arena " + p.name + " has escaped from " + arenas[i2].owner + "'s " + arenas[i2].type + " Arena", 0);
 				if (p.pvpd == 1 and p.pvp == 1) {
 					p.pvp = 0;
@@ -9715,7 +9715,7 @@ else send_reliable(p, "msg2 " + players[id].name + " is in the " + players[id].l
 		int ind = get_player_index_from(p.looking);
 		if (ind > -1) {
 			if (players[ind].gender == 0)players[ind].gender2 = "his";
-			else players[ind].gender2 = "her";
+			else players[ind].gender2 = "shis";
 			send_reliable(p, "" + players[ind].gender2 + " " + players[ind].temperature + "", 2);
 		} else
 			send_reliable(p, "your " + p.temperature + "", 2);
@@ -9733,7 +9733,7 @@ else send_reliable(p, "msg2 " + players[id].name + " is in the " + players[id].l
 				int something3 = a3.find(players[ind].map);
 				if (something > -1 or something2 > -1 or something3 > -1) {
 					if (players[ind].gender == 0)players[ind].gender2 = "his";
-					else players[ind].gender2 = "her";
+					else players[ind].gender2 = "shis";
 					send_reliable(p, "" + players[ind].gender2 + " in " + players[ind].map + " map for " + ms_to_readable_time(players[ind].finishtasktimer.elapsed) + "", 2);
 				} else
 					send_reliable(p, "" + players[ind].gender2 + " is not in a public, private, or task map", 2);

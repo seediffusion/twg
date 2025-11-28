@@ -114,7 +114,7 @@ string get_modified_time(datetime@ value) {
 	return get_modified_time(e.year, e.month, e.day, e.hour, e.minute, e.second);
 }
 class lister {
-	//list to string conversion.
+	//list to string convertion.
 	string convert(any@ value, string sep = ", ", string and_value = "", string def = "") {
 		if (value is null) return def;
 		string[] list;

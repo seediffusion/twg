@@ -18,13 +18,13 @@ wind:none.ogg
 rain:telha2.ogg
 #entrance
 tile:0:80:0:4:0:0:concrete29
-zone:0:80:0:4:0:20:entrance pathway.
+zone:0:80:0:4:0:20:entrence pathway.
 tile:0:80:0:220:-1:-1:wall
 tile:0:37:5:5:0:99:wallwood10
 tile:43:80:5:5:0:99:wallwood10
 music:0:80:0:5:0:20:-9:100:musical22.ogg:1
 tile:38:42:5:5:0:0:marble5
-zone:38:42:5:5:0:99:connecting point of entrance and garden pathways:trackme
+zone:38:42:5:5:0:99:connecting point of entrence and garden pathwayes:trackme
 zone:37:43:0:4:0:99:pathway intersection
 tile:2:2:0:0:0:0:marble5
 zone:2:2:0:0:0:99:exit_door:trackme
@@ -518,7 +518,7 @@ tile:15:15:176:176:41:50:air
 door:15:15:176:176:20:22:15:176:40:you press the lighter on a point on the stove, as a flame on the stove flickers to life:0:silence.ogg:silence.ogg:getlighter.ogg:fireburn2.ogg
 src:8:16:176:180:40:50:-4:100:water_boiling_in_pot.ogg:1
 oven:8:16:177:180:40:50
-sign:15:15:176:176:40:50:you don't need it now.:silence.ogg
+sign:15:15:176:176:40:50:you dont need it now.:silence.ogg
 door:9:9:176:176:20:50:9:176:3:you turn off the nob:0:silence.ogg:silence.ogg:turn.ogg:silence.ogg
 ####microwave
 tile:26:28:178:180:3:12:wallscreen

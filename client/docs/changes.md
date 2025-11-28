@@ -12,10 +12,10 @@
 - Added 3 new commands. `/tinvite <name>` will invite a player into your team. `/ati` will accept the invitation, and `/rti` will refuse the invitation. Each player can only hold 1 invite. Thus, if the player has already been invited by someone, other players cannot invite that player until they have accepted or refused. If you accept an invitation but you are already in a team and are not the leader, you will leave the team.
 - Managers can now merge 2 teams if requested. Only do this when it is necessary.
 - Modified the house system.
-- Added a new house called Apartment, anyone with a house or not, anyone, married or not, can buy it. The residential building is currently in the Lindow Town.
-- Added tents, now players can place there tents like how you place other houses, there is no specific map for tents, just some maps restrict them. you can also pick up your tents when you don't need them out in the open with enter.
+- Added a new house called Apartment, anyone with a house or not, anyone, married or not, can buy it. The residencial building is currently in the Lindow Town.
+- Added tents, now players can place there tents like how you place other houses, there is no specific map for tents, just some maps restrict them. you can also pick up your tents when you dont need them out in the open with enter.
 - skillets no longer work with ID's. yay.
-- You can now open your house / apartment doors with `Alt+Enter` while standing on the door from inside or outside your house for 8 seconds. While the door is open, anyone can enter your house without the code. Be careful! Only use this when people you don't trust aren't around your house!
+- You can now open your house / apartment doors with `Alt+Enter` while standing on the door from inside or outside your house for 8 seconds. While the door is open, anyone can enter your house without the code. Be careful! Only use this when people you dont trust arent around your house!
 - Assistants can now review to admintells and respond to them.
 - Assistants can now edit, add or otherwise remove item descriptions.
 - Added `/teammods` command to list moderators of the team.
@@ -45,7 +45,7 @@
 - Changed zone tracking key to `O` key. Thanks "Rishi".
 
 ## Changes in 2.46 (The Hearth of Ultra World!
-- Finally, finally, the houses are enabled for building in the residential area! The names of the house items are also changed and have their prices increased. The Conex (the single house) is now named as `golden_gate_house`, and the partner house is now named as `rosehaven_house`.
+- Finally, finally, the houses are enabled for building in the residencial area! The names of the house items are also changed and have their prices increased. The Conex (the single house) is now named as `golden_gate_house`, and the partner house is now named as `rosehaven_house`.
 - Buffer now has actual muting system. This means that when you mute a buffer, the speech and sound will not play, but the items will be there. If you want to even disable items from coming, you can deactivate the buffer.
 - You can now copy buffer item by pressing `Shift+C`.
 - Language channel managers can now press `Shift+Alt+L` to set the message of the day of their channel rather than using the `/newlmotd` command. The command is still available though.
@@ -95,7 +95,7 @@ Welcome to the first version of NVGT engine. Therefore, bugs might arrive. This 
 - The inventory search and cycle / navigation systems have been redesigned. The `Shift+S` inside the inventory has been changed to `CTRL+F`. Multi letter navigation is now possible. The `Alt+V` key outside of inventory also gets replaced by a new search dialog.
 - Rewritten ban system.
 - Redesigned staff system.
-- Rewritten how network is handled on the server. The server should now respond better.
+- Rewritten how network is handled on the server. The server should now response better.
 - Redesigned moving system.
 - Added per-coordinate based death message system.
 - Redesigned input system. As the result, you can now type in your language, provided that it is in UTF8 encoding. Multi line is now supported in chat.

@@ -14,7 +14,7 @@ you must type a playername that will unban their computer, again the product ids
 ---- -
 ";
 string eventhelp = "
-Type /newevent <eventname> to create a new event. This should send back an ID with the event ID. This ID will contain only numbers and should only be 4 digits. From there, you need to set everything up through the /eventset command.
+Type /newevent <eventname> to create a new event. This should send back an ID with the event ID. This ID will contain only numbers and should only be 4 digets. From there, you need to set everything up through the /eventset command.
 Setting up the event will be kind of easy, but it can be a process. Type / eventset <id> <setting = val> to set the event.
 Event values are as follows:
 *Map: a string defining where the user will be moved when joining the event. the default value is main.
@@ -27,6 +27,6 @@ If you wish to end an event, you can type / endevent <id>, and the event will en
 ";
 string lcmrules = "lcm rules
 The non application of these rules, will result in demotion of your rank.
-1: each language channel manager should only focus on their channel not others, or their rank will be taken by an admin and we will do an action
-2: each language channel manager only should translate the english MOTD, and if he'd like to set one, should tell to the admins and do it with their permission
+1: each language channel manager should only focus on he / shis channel not others, or he's rank will be taken by an admin and we will do an action
+2: each language channel manager only should translate the english MOTD, and if he'd like to set one, should tell to the admins and do it with there permition
 ";

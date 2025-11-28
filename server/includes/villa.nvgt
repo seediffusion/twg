@@ -257,7 +257,7 @@ class villa {
 					string packet;
 					if (hackmode == 1) {
 						if (security_boosts >= 0) security_boosts -= random(1, 100);
-						packet = "Hack successful! The house code is " + code;
+						packet = "Hack successfull! The house code is " + code;
 					} else {
 						if (security_boosts >= 0) security_boosts -= random(1, 100);
 						packet = "The hack did not complete successfully";
