@@ -1,4 +1,4 @@
-string mainnetaddress = "uw.posix.live";
+string mainnetaddress = "tvc.seedy.cc";
 string netaddress = mainnetaddress;
 int netport = 6200;
 uint peer_id = 0;
