@@ -841,7 +841,7 @@ void use(player@p, string message) {
 			p.inv_add_item("amirmahdifards_coffee", -1);
 			p.inv_add_item("cup", 1);
 			send_reliable(p, "hempty " + parsed[2], 0);
-		} else if (parsed[1] == "patricus_coffee_coffee") {
+		} else if (parsed[1] == "patricus_coffee") {
 			send_packet(6, "play drinkcup.ogg " + p.x + " " + p.y + " " + p.z, p.x, p.y, p.z, maps[get_map_index(p.map)]);
 			p.thirst = 0;
 			p.energy += 30000;
