@@ -1,4 +1,5 @@
 ## Changes in 2.49.1
+-fixes for some spelling error for item giver/taker door
 - Server restart notifications are now non-blocking: the client announces the reason and automatically reconnects.
 - Fixed the "Ask on exit" setting logic in the options menu.
 - Fixed a client crash related to dreaming sounds. Thanks "alan".
