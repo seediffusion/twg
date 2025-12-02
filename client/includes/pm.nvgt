@@ -65,7 +65,7 @@ void pmmenu() {
 		string r = c.click;
 		if (r != "" && pm_index(r) > -1) {
 			pmmsg@ l = pm_obj(r);
-			string i = input("Reply", "Type the message to reply to " + l.nickname + " (" + l.name + ")");
+			string i = input("Reply", "Type the message to reply to " + l.nickname + " (" + l.name + ")", multiline = true);
 			if (i != "") {
 				send(peer_id, "reply " + l.name + " " + i, 0);
 				break;

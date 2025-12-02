@@ -1013,7 +1013,7 @@ chat("public chat");
 			} else if (use == 0) {
 				speak("using items");
 				rvp.play_stationary("use_items.ogg", false);
-				send_reliable(peer_id, "draw use_item.ogg", 7);
+				send_reliable(peer_id, "draw use_items.ogg", 7);
 				use = 1;
 			}
 			writeprefs();
