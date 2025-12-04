@@ -110,7 +110,7 @@ break;
 string msg = ttsv.speak_to_memory(form.get_text(chat));
 send_reliable(peer_id, "tts " + form.get_text(chat).length() + " " + try_memset(msg), 3);
 }
-else if(form.get_list_item(chattype, form.get_list_position(chattype))=="partner chat") send_reliable(peer_id, "partnerchat " + form.get_text(chat), 0);
+else if(form.get_list_item(chattype, form.get_list_position(chattype))=="partner chat") send_reliable(peer_id, "partnerchat2 " + form.get_text(chat), 0);
 else if(form.get_list_item(chattype, form.get_list_position(chattype))=="admin tell") send_reliable(peer_id, "admintell " + form.get_text(chat), 0);
 else if(form.get_list_item(chattype, form.get_list_position(chattype))=="lcm chat") send_reliable(peer_id, "lcm " + form.get_text(chat), 0);
 else if(form.get_list_item(chattype, form.get_list_position(chattype))=="assistant chat") send_reliable(peer_id, "astchat " + form.get_text(chat), 0);
