@@ -175,12 +175,12 @@ void main() {
 	netsetup = n.setup_server(port, 20, 500);
 	if (!netsetup) {
 		#if_not linux
-	netsetup = n.setup_server(port, 20, 500);
+		alert("Error", "Can't set up server.");
 		#endif
 		#if linux
-	netsetup = n.setup_server(port, 20, 500);
+		println("Failed to setup server. Network instance might have already been active.");
 		#endif
-	netsetup = n.setup_server(port, 20, 500);
+		exit();
 	}
 	svd::load();
 	load_xp_schedule();
