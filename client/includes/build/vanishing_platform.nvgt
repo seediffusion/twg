@@ -52,17 +52,6 @@ void buildvanishing_platform() {
         string vanishsound = list_ambiences();
         if (vanishsound == "") return;
 
-        if (mx  < min.x || mx  > max.x ||
-            mmx < min.x || mmx > max.x ||
-            my  < min.y || my  > max.y ||
-            mmy < min.y || mmy > max.y ||
-            mz  < min.z || mz  > max.z ||
-            mmz < min.z || mmz > max.z)
-        {
-            speak("error. Given coordinates are out of range");
-            return;
-        }
-
         send_reliable(peer_id, "addvanishing_platform vanishing_platform:" + mx + ":" + mmx + ":" + my + ":" + mmy + ":" + mz + ":" + mmz + ":" + vanishtime + ":" + vanishtile + ":" + vanishsound + ".ogg", 0);
     }
     else {
@@ -111,15 +100,6 @@ void buildvanishing_platform() {
 
         string vanishsound = list_ambiences();
         if (vanishsound == "") return;
-
-        if (mx  < min.x || mx  > max.x ||
-            mmx < min.x || mmx > max.x ||
-            my  < min.y || my  > max.y ||
-            mmy < min.y || mmy > max.y)
-        {
-            speak("error. Given coordinates are out of range");
-            return;
-        }
 
         send_reliable(peer_id, "addvanishing_platform vanishing_platform:" + mx + ":" + mmx + ":0:0:" + my + ":" + mmy + ":" + vanishtime + ":" + vanishtile + ":" + vanishsound + ".ogg", 0);
     }

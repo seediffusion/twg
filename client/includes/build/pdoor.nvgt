@@ -64,20 +64,6 @@ void buildpdoor() {
         string ds3 = list_ds3s(); if (ds3 == "") return;
         string ds4 = list_ds4s(); if (ds4 == "") return;
 
-        if (mx  < min.x || mx  > max.x ||
-            mmx < min.x || mmx > max.x ||
-            my  < min.y || my  > max.y ||
-            mmy < min.y || mmy > max.y ||
-            mz  < min.z || mz  > max.z ||
-            mmz < min.z || mmz > max.z ||
-            fx  < min.x || fx  > max.x ||
-            fy  < min.y || fy  > max.y ||
-            fz  < min.z || fz  > max.z)
-        {
-            speak("error. Given coordinates are out of range");
-            return;
-        }
-
         send_reliable(peer_id, "addpdoor pdoor:" + mx + ":" + mmx + ":" + my + ":" + mmy + ":" + mz + ":" + mmz + ":" + fx + ":" + fy + ":" + fz + ":" + text + ":" + password + ":" + dtime + ":" + ds1 + ".ogg:" + ds2 + ".ogg:" + ds3 + ".ogg:" + ds4 + ".ogg", 0);
     }
     else {
@@ -135,17 +121,6 @@ void buildpdoor() {
         string ds2 = list_ds2s(); if (ds2 == "") return;
         string ds3 = list_ds3s(); if (ds3 == "") return;
         string ds4 = list_ds4s(); if (ds4 == "") return;
-
-        if (mx  < min.x || mx  > max.x ||
-            mmx < min.x || mmx > max.x ||
-            mz  < min.z || mz  > max.z ||
-            mmz < min.z || mmz > max.z ||
-            fx  < min.x || fx  > max.x ||
-            fz  < min.z || fz  > max.z)
-        {
-            speak("error. Given coordinates are out of range");
-            return;
-        }
 
         send_reliable(peer_id, "addpdoor pdoor:" + mx + ":" + mmx + ":0:0:" + mz + ":" + mmz + ":" + fx + ":0:" + fz + ":" + text + ":" + password + ":" + dtime + ":" + ds1 + ".ogg:" + ds2 + ".ogg:" + ds3 + ".ogg:" + ds4 + ".ogg", 0);
     }

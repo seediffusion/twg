@@ -71,7 +71,6 @@ void builddeathpoint() {
             speak("canceled"); return;
         }
 
-
         send_reliable(peer_id, "adddeathpoint deathpoint:" + mx + ":" + mmx + ":0:0:" + my + ":" + mmy, 0);
     }
 }

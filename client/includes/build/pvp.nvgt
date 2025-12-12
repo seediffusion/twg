@@ -46,17 +46,6 @@ void buildpvp() {
             return;
         }
 
-        if (mx  < min.x || mx  > max.x ||
-            mmx < min.x || mmx > max.x ||
-            my  < min.y || my  > max.y ||
-            mmy < min.y || mmy > max.y ||
-            mz  < min.z || mz  > max.z ||
-            mmz < min.z || mmz > max.z)
-        {
-            speak("error. Given coordinates are out of range");
-            return;
-        }
-
         send_reliable(peer_id, "addpvp pvp:" + mx + ":" + mmx + ":" + my + ":" + mmy + ":" + mz + ":" + mmz + ":" + mode, 0);
     }
     else {
@@ -97,15 +86,6 @@ void buildpvp() {
 
         if (mx == "" || mmx == "" || my == "" || mmy == "" || mode == "") {
             speak("canceled");
-            return;
-        }
-
-        if (mx  < min.x || mx  > max.x ||
-            mmx < min.x || mmx > max.x ||
-            my  < min.z || my  > max.z ||
-            mmy < min.z || mmy > max.z)
-        {
-            speak("error. Given coordinates are out of range");
             return;
         }
 

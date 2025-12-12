@@ -67,8 +67,8 @@ void gameloop() {
 			}
 		}
 		if (key_pressed(KEY_APOSTROPHE)) {
-			if (shift_down) send_reliable(peer_id, "teamchat", 0);
-			else send_reliable(peer_id, "partnerchat", 0);
+			if (shift_down) chat("team chat");
+			else chat("partner chat");
 			return;
 		}
 		if (sleepmode != 0 and looking == false) {
@@ -130,9 +130,7 @@ void gameloop() {
 	if (alt_is_down() and key_up(KEY_LSHIFT) and key_up(KEY_RSHIFT) and key_pressed(KEY_F1))
 		get_voice_menu();
 	if (key_up(KEY_LSHIFT) and key_up(KEY_RSHIFT) and key_up(KEY_LMENU) and key_up(KEY_RMENU) and key_pressed(KEY_F7)) {
-		string s = input("Admintell", "type your message here. Please note: this message will be sent to the admins and will be logged", multiline = true);
-		if (s != "" and !is_eloquence_crash_word(s) and get_sequence(s, true) <= 3)
-			send_reliable(peer_id, "admintell " + s, 0);
+		chat("admin tell");
 	}
 	if (key_up(KEY_LSHIFT) and key_up(KEY_RSHIFT) and key_up(KEY_LMENU) and key_up(KEY_RMENU) and key_pressed(KEY_F9))
 		send_reliable(peer_id, "beacon", 0);
@@ -813,9 +811,9 @@ void gameloop() {
 			optionsmenu();
 			return;
 		}
-		if (trackx == -1 or tracky == -1 or trackz == -1 or tracking == "")
+		if (ztrackx == -1 or ztracky == -1 or ztrackz == -1 or ztracking == "")
 			speak("Nothing to track");
-		else tell_where(trackx, tracky, trackz, "loctrack", false);
+		else tell_where(ztrackx, ztracky, ztrackz, "loctrack", false);
 	}
 	if (shift_is_down() and key_pressed(KEY_N)) {
 		if (ttrackx == -1 or ttracky == -1 or ttrackz == -1 or ttracking == "")
@@ -872,22 +870,25 @@ void gameloop() {
 		writeprefs();
 	}
 	if (key_up(KEY_LSHIFT) and key_up(KEY_RSHIFT) and key_up(KEY_LMENU) and key_up(KEY_RMENU) and key_pressed(KEY_EQUALS)) {
-		string colocar = input("Command", "Enter the command. Note: / will be put before it automaticly", multiline = true);
-		if (colocar != "" and !is_eloquence_crash_word(colocar) and get_sequence(colocar, true) <= 3) {
-			string sendmsg = colocar;
-			for (uint a = 0; a < aliases.length(); a += 1) {
-				string[] a2 = string_split(aliases[a], ":", false);
-				if (a2.length() == 2)
-					sendmsg = string_replace(sendmsg, a2[0], a2[1], true);
-			}
-			send_reliable(peer_id, "/" + sendmsg, 1);
-		}
+		chat("command");
 	}
 	if (looking == false and sleepmode != 0) {
 		if (key_up(KEY_LMENU) and key_up(KEY_RMENU) and key_up(KEY_LSHIFT) and key_up(KEY_RSHIFT) and key_pressed(KEY_T) and key_up(KEY_G) and sleepmode != 0) {
 			send_reliable(peer_id, "combine (" + lefthand + ") (" + righthand + ")", 5);
 			return;
 		}
+		if (alt_is_down() and key_up(KEY_LSHIFT) and key_up(KEY_RSHIFT) and key_pressed(KEY_T) and key_up(KEY_G)) {
+			if (lefthand == "" and righthand == "") {
+					if (get_tile_at(me.x, me.y, me.z) == "underwater") {
+						rvp.play_stationary("underwaterclap.ogg", false);
+						send_reliable(peer_id, "draw underwaterclap.ogg", 7);
+					} else {
+						rvp.play_stationary("snap.ogg", false);
+						send_reliable(peer_id, "draw snap.ogg", 7);
+					}
+				}
+			}
+	
 	}
 	if (key_pressed(KEY_J) and key_up(KEY_LSHIFT) and key_up(KEY_RSHIFT) and key_up(KEY_LMENU) and key_up(KEY_RMENU))
 		send_reliable(peer_id, "energycheck", 0);
@@ -960,16 +961,16 @@ void gameloop() {
 	if (shift_is_down() and key_pressed(KEY_H))
 		helpmenu();
 	if (shift_is_down() and key_up(KEY_LMENU) and key_up(KEY_RMENU) and key_pressed(KEY_D)) {
-		if (!SCRIPT_COMPILED or lcm == true or admin == true or manager == true)chat_lcm();
+		if (assistant or lcm == true or admin == true or manager == true or dev == true)chat("lcm chat");
 	}
 	if (alt_is_down() and key_up(KEY_LSHIFT) and key_up(KEY_RSHIFT) and key_pressed(KEY_D)) {
-		if (!SCRIPT_COMPILED or admin == true or manager == true)chat_administrativo();
+		if (admin == true or manager == true or dev == true)chat("admin chat");
 	}
 	if (alt_is_down() and key_up(KEY_LSHIFT) and key_up(KEY_RSHIFT) and key_pressed(KEY_M) and key_up(KEY_G)) {
-		if (!SCRIPT_COMPILED or manager == true)chat_manager();
+		if (manager == true or dev == true)chat("manager chat");
 	}
 	if (alt_is_down() and shift_is_down() and key_pressed(KEY_D)) {
-		if (!SCRIPT_COMPILED or dev == true)chat_dev();
+		if (dev == true)chat("developer chat");
 	}
 	if (key_pressed(KEY_S)) {
 		if (shift_down) {
@@ -990,11 +991,11 @@ void gameloop() {
 	if (shift_is_down() and key_up(KEY_LMENU) and key_up(KEY_RMENU) and key_pressed(KEY_U))
 		send_reliable(peer_id, "fullcheck", 0);
 	if (looking == false and sleepmode != 0) {
-		if (key_up(KEY_LSHIFT) && key_up(KEY_RSHIFT) && alt_is_down() && key_pressed(KEY_A) && assistant) {
-			string run = nvinput("Assistant", "Type your message to the assistant chat", multiline = true);
-			if (run != "" and !is_eloquence_crash_word(run) and get_sequence(run, true) <= 3) {
-				send_reliable(peer_id, "astchat " + run, 0);
-			}
+		if (key_up(KEY_LSHIFT) && key_up(KEY_RSHIFT) && alt_is_down() && key_pressed(KEY_A)) {
+if(assistant or admin == true or manager == true or dev == true)
+{
+		chat("assistant chat");
+}
 		}
 	}
 	if (key_up(KEY_LMENU) and key_up(KEY_RMENU) and !shift_down and key_pressed(KEY_C) && dcoordinates == 0) {
@@ -1006,47 +1007,14 @@ void gameloop() {
 	if (key_pressed(KEY_C) and alt_is_down() && !shift_down)
 		send_reliable(peer_id, "clothing", 0);
 	if (key_pressed(KEY_SLASH)) {
-		if ((key_down(KEY_LMENU) or key_down(KEY_RMENU)) and dttschat == 0) {
-			string stuff = v.input("Enter your tts message");
-			if (stuff != "") {
-				if (stuff.length() > 256)
-					speak("limit is 256 characters");
-				else {
-					string msg = ttsv.speak_to_memory(stuff);
-					send_reliable(peer_id, "tts " + stuff.length() + " " + try_memset(msg), 3);
-					//if (savettschats == 1)
-						//file_copy(DIRECTORY_TEMP + "\\ttsmsg.ogg", "voices/tts message " + DATE_WEEKDAY_NAME + ", " + DATE_MONTH_NAME + "-" + DATE_DAY + "-" + DATE_YEAR + ", " + TIME_HOUR + " " + TIME_MINUTE + " " + TIME_SECOND + ".ogg", true);
-					//file_delete(DIRECTORY_TEMP + "/ttsmsg.ogg");
-				}
-			}
-		} else {
-			string chat = input("Public chat", "type your public message here", multiline = true);
-			if (chat != "" and !is_eloquence_crash_word(chat) and get_sequence(chat, true) <= 3) {
-				string[] chats = string_split(chat, "::", true);
-				if (chat != "") {
-					string sendmsg = chat;
-					for (uint a = 0; a < aliases.length(); a += 1) {
-						string[] a2 = string_split(aliases[a], ":", false);
-						if (a2.length() == 2)
-							sendmsg = string_replace(sendmsg, a2[0], a2[1], true);
-					}
-					send_reliable(peer_id, sendmsg, 1);
-				}
-			}
-		}
-	}
+		if ((key_down(KEY_LMENU) or key_down(KEY_RMENU)) and dttschat == 0)
+chat("tts chat");
+else
+chat("public chat");
+}
 	if (key_pressed(KEY_BACKSLASH) and dlocalchat == 0) {
-		string s = input("Local chat", "type your local message here", multiline = true);
-		if (s != "" and !is_eloquence_crash_word(s) and get_sequence(s, true) <= 3) {
-			string sendmsg = s;
-			for (uint a = 0; a < aliases.length(); a += 1) {
-				string[] a2 = string_split(aliases[a], ":", false);
-				if (a2.length() == 2)
-					sendmsg = string_replace(sendmsg, a2[0], a2[1], true);
-			}
-			send_reliable(peer_id, "localchat " + sendmsg, 0);
-		}
-	}
+	chat("local chat");
+}
 	if (looking == false and sleepmode != 0) {
 		if (key_pressed(KEY_Y)) {
 			if (use == 1) {
@@ -1057,7 +1025,7 @@ void gameloop() {
 			} else if (use == 0) {
 				speak("using items");
 				rvp.play_stationary("use_items.ogg", false);
-				send_reliable(peer_id, "draw use_item.ogg", 7);
+				send_reliable(peer_id, "draw use_items.ogg", 7);
 				use = 1;
 			}
 			writeprefs();
@@ -1195,16 +1163,15 @@ void gameloop() {
 		speak((winsound == 0 ? "enabled" : "disabled") + " muting audio when the game is not in focus");
 	}
 	if (key_up(KEY_LSHIFT) and key_up(KEY_RSHIFT)) {
-		if (key_pressed(KEY_HOME) == false and khome.pressing() and get_sound_master_volume() < 0) {
-			set_sound_master_volume(get_sound_master_volume() + 1);
+		if (key_pressed(KEY_HOME) == false and khome.pressing() and mvol < 0) {
+			change_master_volume(1);
 			p.play_stationary("volume_up.ogg", false);
-			mvol++;
 		}
-		if (key_pressed(KEY_END) == false and kend.pressing() and get_sound_master_volume() > -60) {
-			set_sound_master_volume(get_sound_master_volume() - 1);
+		if (key_pressed(KEY_END) == false and kend.pressing() and mvol > -60) {
+			change_master_volume(-1);
 			p.play_stationary("volume_down.ogg", false);
-			mvol--;
 		}
+		if (key_up(KEY_HOME) or key_up(KEY_END)) writeprefs();
 	} else if (shift_is_down()) {
 		if (key_pressed(KEY_HOME) == false and khome.pressing() and mmusic_volume <= 0)
 			change_music_volume(mmusic_volume + 1);

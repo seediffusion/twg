@@ -10,7 +10,7 @@ void builddialog() {
         int d = form.create_input_box("type the maximum &y of the dialog area");
         int e = form.create_input_box("type the minimum &z of the dialog area");
         int f = form.create_input_box("type the maximum &z of the dialog area");
-        int g = form.create_input_box("enter dialog texts, separate them with == (e.g. hi == how are you)", "", "", 0, false, false);
+        int g = form.create_input_box("enter dialog texts, separate them with = (e.g. hi = how are you)", "", "", 0, false, false);
         form.set_disallowed_chars(a, nums, true);
         form.set_disallowed_chars(b, nums, true);
         form.set_disallowed_chars(c, nums, true);
@@ -38,23 +38,12 @@ void builddialog() {
                 return;
             }
         }
-        if (mx == "" || mmx == "" || my == "" || mmy == "" || mz == "" || mmz == "") {
+        if (mx == "" || mmx == "" || my == "" || mmy == "" || mz == "" || mmz == "" || t == "") {
             speak("canceled");
             return;
         }
-        if (mx  < min.x || mx  > max.x ||
-            mmx < min.x || mmx > max.x ||
-            my  < min.y || my  > max.y ||
-            mmy < min.y || mmy > max.y ||
-            mz  < min.z || mz  > max.z ||
-            mmz < min.z || mmz > max.z)
-        {
-            speak("error. Given coordinates are out of range");
-            return;
-        }
-        string ha = "";
-        if (t != "") ha = ":" + t;
-        send_reliable(peer_id, "adddialog dialog:" + mx + ":" + mmx + ":" + my + ":" + mmy + ":" + mz + ":" + mmz + ha, 0);
+
+        send_reliable(peer_id, "adddialog dialog:" + mx + ":" + mmx + ":" + my + ":" + mmy + ":" + mz + ":" + mmz + ":" + t, 0);
     }
     else {
         form.reset();
@@ -65,7 +54,7 @@ void builddialog() {
         int b = form.create_input_box("type the maximum &x of the dialog area");
         int c = form.create_input_box("type the minimum &y of the dialog area");
         int d = form.create_input_box("type the maximum &y of the dialog area");
-        int e = form.create_input_box("enter dialog texts, separate them with == (e.g. hi == how are you)", "", "", 0, false, false);
+        int e = form.create_input_box("enter dialog texts, separate them with = (e.g. hi = how are you)", "", "", 0, false, false);
         form.set_disallowed_chars(a, nums, true);
         form.set_disallowed_chars(b, nums, true);
         form.set_disallowed_chars(c, nums, true);
@@ -89,20 +78,11 @@ void builddialog() {
                 return;
             }
         }
-        if (mx == "" || mmx == "" || my == "" || mmy == "") {
+        if (mx == "" || mmx == "" || my == "" || mmy == "" || t == "") {
             speak("canceled");
             return;
         }
-        if (mx  < min.x || mx  > max.x ||
-            mmx < min.x || mmx > max.x ||
-            my  < min.y || my  > max.y ||
-            mmy < min.y || mmy > max.y)
-        {
-            speak("error. Given coordinates are out of range");
-            return;
-        }
-        string ha = "";
-        if (t != "") ha = ":" + t;
-        send_reliable(peer_id, "adddialog dialog:" + mx + ":" + mmx + ":0:0:" + my + ":" + mmy + ha, 0);
+
+        send_reliable(peer_id, "adddialog dialog:" + mx + ":" + mmx + ":0:0:" + my + ":" + mmy + ":" + t, 0);
     }
 }

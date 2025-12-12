@@ -51,17 +51,6 @@ void buildsign() {
             return;
         }
 
-        if (mx  < min.x || mx  > max.x ||
-            mmx < min.x || mmx > max.x ||
-            my  < min.y || my  > max.y ||
-            mmy < min.y || mmy > max.y ||
-            mz  < min.z || mz  > max.z ||
-            mmz < min.z || mmz > max.z)
-        {
-            speak("error. Given coordinates are out of range");
-            return;
-        }
-
         send_reliable(peer_id, "addsign sign:" + mx + ":" + mmx + ":" + my + ":" + mmy + ":" + mz + ":" + mmz + ":" + signtext + ":" + signsound + ".ogg", 0);
     }
     else {
@@ -107,15 +96,6 @@ void buildsign() {
         string signsound = list_signs();
         if (signsound == "") {
             speak("canceled");
-            return;
-        }
-
-        if (mx  < min.x || mx  > max.x ||
-            mmx < min.x || mmx > max.x ||
-            my  < min.y || my  > max.y ||
-            mmy < min.y || mmy > max.y)
-        {
-            speak("error. Given coordinates are out of range");
             return;
         }
 

@@ -10,7 +10,7 @@ namespace player {
 			send(peer_id, "stats " + n, 0);
 			return;
 		} else if (w == "pm") {
-			string r = input("Message", "Type the message to send to " + n);
+			string r = input("Private message", "Type the message to send to " + n, multiline = true);
 			if (r == "") return;
 			send(peer_id, "pm " + n + " " + r, 0);
 			return;

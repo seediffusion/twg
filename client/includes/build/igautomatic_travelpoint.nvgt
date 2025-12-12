@@ -65,17 +65,6 @@ void buildigautomatic_travelpoint() {
         string ds2 = list_ds3s(); if (ds2 == "") return;
         string ds3 = list_ds4s(); if (ds3 == "") return;
 
-        if (mx  < min.x || mx  > max.x ||
-            mmx < min.x || mmx > max.x ||
-            my  < min.y || my  > max.y ||
-            mmy < min.y || mmy > max.y ||
-            mz  < min.z || mz  > max.z ||
-            mmz < min.z || mmz > max.z)
-        {
-            speak("error. Given coordinates are out of range");
-            return;
-        }
-
         send_reliable(peer_id, "addigautomatic_travelpoint igautomatic_travelpoint:" + mx + ":" + mmx + ":" + my + ":" + mmy + ":" + mz + ":" + mmz + ":" + map + ":" + fx + ":" + fy + ":" + fz + ":" + text + ":" + item + ":" + amount + ":" + ds1 + ".ogg:" + ds2 + ".ogg:" + ds3 + ".ogg", 0);
     }
     else {
@@ -134,15 +123,6 @@ void buildigautomatic_travelpoint() {
         string ds1 = list_ds1s(); if (ds1 == "") return;
         string ds2 = list_ds3s(); if (ds2 == "") return;
         string ds3 = list_ds4s(); if (ds3 == "") return;
-
-        if (mx  < min.x || mx  > max.x ||
-            mmx < min.x || mmx > max.x ||
-            my  < min.z || my  > max.z ||
-            mmy < min.z || mmy > max.z)
-        {
-            speak("error. Given coordinates are out of range");
-            return;
-        }
 
         send_reliable(peer_id, "addigautomatic_travelpoint igautomatic_travelpoint:" + mx + ":" + mmx + ":0:0:" + my + ":" + mmy + ":" + map + ":" + fx + ":0:" + fy + ":" + text + ":" + item + ":" + amount + ":" + ds1 + ".ogg:" + ds2 + ".ogg:" + ds3 + ".ogg", 0);
     }

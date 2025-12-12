@@ -46,17 +46,6 @@ void buildspecified_air_temperature() {
             return;
         }
 
-        if (mx  < min.x || mx  > max.x ||
-            mmx < min.x || mmx > max.x ||
-            my  < min.y || my  > max.y ||
-            mmy < min.y || mmy > max.y ||
-            mz  < min.z || mz  > max.z ||
-            mmz < min.z || mmz > max.z)
-        {
-            speak("error. Given coordinates are out of range");
-            return;
-        }
-
         send_reliable(peer_id, "addspecified_air_temperature specified_air_temperature:" + mx + ":" + mmx + ":" + my + ":" + mmy + ":" + mz + ":" + mmz + ":" + text, 0);
     }
     else {
@@ -97,15 +86,6 @@ void buildspecified_air_temperature() {
 
         if (mx == "" || mmx == "" || my == "" || mmy == "" || text == "") {
             speak("canceled");
-            return;
-        }
-
-        if (mx  < min.x || mx  > max.x ||
-            mmx < min.x || mmx > max.x ||
-            my  < min.z || my  > max.z ||
-            mmy < min.z || mmy > max.z)
-        {
-            speak("error. Given coordinates are out of range");
             return;
         }
 
